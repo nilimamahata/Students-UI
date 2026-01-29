@@ -1,0 +1,16 @@
+.studentLayout {
+  display: flex;
+  height: 100vh;
+}
+
+.studentLayout__right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.studentLayout__page {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
