@@ -1,173 +1,281 @@
+import { useState } from "react";
 import SessionCard from "../components/SessionCard";
 import AssignmentCard from "../components/AssignmentCard";
 import NotificationCard from "../components/NotificationCard";
+import DropdownMenu from "../components/DropdownMenu";
 import "../styles/dashboard.css";
 
 export default function Dashboard() {
+  const [showAllSessions, setShowAllSessions] = useState(false);
+
+  const [notificationFilter, setNotificationFilter] = useState("All");
+  const [scheduleFilter, setScheduleFilter] = useState("All");
+
   const sessions = [
     {
       img: "https://images.unsplash.com/photo-1454165205744-3b78555e5572?w=400",
       subject: "Subject Name",
-      topic: "Topic",
+      topic: "Session Title/Topic",
       teacher: "Teacher Name",
       dateTime: "Session date",
     },
     {
       img: "https://images.unsplash.com/photo-1513258496099-48168024aec0?w=400",
       subject: "Subject Name",
-      topic: "Topic",
+      topic: "Session Title/Topic",
       teacher: "Teacher Name",
       dateTime: "Session date",
     },
     {
       img: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400",
       subject: "Subject Name",
-      topic: "Topic",
+      topic: "Session Title/Topic",
+      teacher: "Teacher Name",
+      dateTime: "Session date",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400",
+      subject: "Subject Name",
+      topic: "Session Title/Topic",
+      teacher: "Teacher Name",
+      dateTime: "Session date",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1544717305-2782549b5136?w=400",
+      subject: "Subject Name",
+      topic: "Session Title/Topic",
+      teacher: "Teacher Name",
+      dateTime: "Session date",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1454165205744-3b78555e5572?w=400",
+      subject: "Subject Name",
+      topic: "Session Title/Topic",
       teacher: "Teacher Name",
       dateTime: "Session date",
     },
   ];
 
+  const collapsedSessions = sessions.slice(0, 3);
+
   const assignments = [
-    { title: "Mathematics chapter 1 algebra", teacher: "Zohra", due: "23/01/2026 (Fri)" },
-    { title: "English chapter 1 Poem", teacher: "Mizuri", due: "22/01/2026 (Thu)" },
-    { title: "Science chapter 2 Biology", teacher: "Mukuri", due: "21/01/2026 (Wed)" },
+    { title: "Mathematics chapter 1 algebra", teacher: "Sir Zothana", due: "23/01/2026 (Fri)" },
+    { title: "English chapter 1 Poem", teacher: "Miss Ruaifeli", due: "02/02/2026 (Tue)" },
+    { title: "English chapter 1 Poem", teacher: "Miss Ruaifeli", due: "02/02/2026 (Tue)" },
   ];
 
   const quizzes = [
-    { title: "Science chapter 1 Biology", teacher: "Mukuri", due: "23/01/2026 (Friday)" },
-    { title: "Mathematics chapter 1 Algebra", teacher: "Zohra", due: "22/01/2026 (Thursday)" },
+    { title: "Science chapter 1 Biology", teacher: "Miss Ruaifeli", due: "23/01/2026 (Friday)" },
+    { title: "Science chapter 1 Biology", teacher: "Miss Ruaifeli", due: "23/01/2026 (Friday)" },
   ];
 
   const notifications = [
-    { title: "New Assignment updated", subject: "Mathematics chapter 1 algebra", teacher: "Teacher: Zohra", time: "Time: 3:00pm to 4:00pm" },
-    { title: "New Live Session date updated", subject: "Mathematics chapter 1 algebra", teacher: "Teacher: Zohra", time: "Time: 1:00pm to 2:00pm" },
-    { title: "New Quiz updated", subject: "Science chapter 2 Biology", teacher: "Teacher: Mukuri", time: "Time: 2:00pm to 3:00pm" },
+    {
+      title: "New Assignment updated",
+      subject: "Mathematics chapter 1 algebra",
+      teacher: "Teacher: Sir Zothana",
+      time: "Due Date: 23/01/2026 (Fri)",
+      type: "Assignments",
+    },
+    {
+      title: "New Live Session date updated",
+      subject: "Mathematics chapter 1 algebra",
+      teacher: "Teacher: Sir Zothana",
+      time: "Time: 1:00pm to 2:00pm",
+      type: "Live Sessions",
+    },
+    {
+      title: "New Quiz updated",
+      subject: "Science chapter 1 Biology",
+      teacher: "Teacher: Miss Ruaifeli",
+      time: "Time: 1:00pm to 2:00pm",
+      type: "Quiz",
+    },
+    {
+      title: "New Assignment updated",
+      subject: "Mathematics chapter 1 algebra",
+      teacher: "Teacher: Sir Zothana",
+      time: "Due Date: 23/01/2026 (Fri)",
+      type: "Assignments",
+    },
   ];
 
-  const todaySessions = [
-    { date: "21/01/2026 (Wed)", title: "Live Session", subject: "Mathematics chapter 1 algebra", teacher: "Teacher: Zohra", time: "Time: 3:00pm to 4:00pm" },
-    { date: "21/01/2026 (Wed)", title: "Quiz", subject: "Science chapter 1 Chemistry", teacher: "Teacher: Mizuri", time: "Time: 1:00pm to 2:00pm" },
-    { date: "23/01/2026 (Fri)", title: "Assignment", subject: "Mathematics chapter 1 algebra", teacher: "Teacher: Zohra", time: "Due Date: 23/01/2026" },
+  const schedule = [
+    {
+      date: "21/01/2026 (Wed)",
+      title: "Live Session",
+      subject: "Mathematics chapter 1 algebra",
+      teacher: "Teacher: Sir Zothana",
+      time: "Time: 3:00pm to 4:00pm",
+      type: "Live Sessions",
+    },
+    {
+      date: "21/01/2026 (Wed)",
+      title: "Due Assignments",
+      subject: "Mathematics chapter 1 algebra",
+      teacher: "Teacher: Sir Zothana",
+      time: "Due Date: 23/01/2026",
+      type: "Assignments",
+    },
+    {
+      date: "21/01/2026 (Wed)",
+      title: "Quiz",
+      subject: "Science chapter 1 Chemistry",
+      teacher: "Teacher: Miss Ruaifeli",
+      time: "Time: 10:00am to 12:00pm",
+      type: "Quiz",
+    },
+    {
+      date: "23/01/2026 (Fri)",
+      title: "Due Assignments",
+      subject: "Mathematics chapter 1 algebra",
+      teacher: "Teacher: Sir Zothana",
+      time: "Due Date: 23/01/2026",
+      type: "Assignments",
+    },
+    {
+      date: "29/01/2026 (Thu)",
+      title: "Live Session",
+      subject: "Science chapter 1 Biology",
+      teacher: "Teacher: Sir Zothana",
+      time: "Time: 2:00pm to 3:00pm",
+      type: "Live Sessions",
+    },
   ];
+
+  const filteredNotifications =
+    notificationFilter === "All"
+      ? notifications
+      : notifications.filter((n) => n.type === notificationFilter);
+
+  const filteredSchedule =
+    scheduleFilter === "All"
+      ? schedule
+      : schedule.filter((s) => s.type === scheduleFilter);
 
   return (
-    <div className="dashboard">
-
-      {/* TOP GRID: sessions + calendar */}
-      <div className="dashboardTop">
-        <div className="dashboardTop__sessions">
+    <div className="dashExact">
+      {/* Top Section */}
+      <div className="dashExact__top">
+        {/* Upcoming sessions */}
+        <div className="whiteCard">
           <div className="cardHeader">
             <h3>Upcoming Live Sessions</h3>
-            <select className="smallSelect">
-              <option>All</option>
-            </select>
+
+            <button
+              className="arrowBtn"
+              onClick={() => setShowAllSessions(!showAllSessions)}
+            >
+              {showAllSessions ? "˄" : "˅"}
+            </button>
           </div>
 
-          <div className="sessionsRow">
-            {sessions.map((s, idx) => (
+          <div className={showAllSessions ? "sessionsGridExpanded" : "sessionsGridCollapsed"}>
+            {(showAllSessions ? sessions : collapsedSessions).map((s, idx) => (
               <SessionCard key={idx} {...s} />
             ))}
           </div>
         </div>
 
-        <div className="dashboardTop__calendar">
-          <div className="calendarBox">
-            <div className="calendarHeader">
-              <span>◀</span>
-              <div>
-                <strong>Jan</strong> <span style={{ marginLeft: 10 }}>2026</span>
-              </div>
-              <span>▶</span>
+        {/* Calendar */}
+        <div className="calendarBox">
+          <div className="calendarHeader">
+            <span>◀</span>
+            <div className="calendarHeader__mid">
+              <select className="calendarSelect">
+                <option>Jan</option>
+              </select>
+              <select className="calendarSelect">
+                <option>2026</option>
+              </select>
             </div>
+            <span>▶</span>
+          </div>
 
-            <div className="calendarGrid">
-              {["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((d) => (
-                <div key={d} className="calDayName">{d}</div>
-              ))}
+          <div className="calendarGrid">
+            {["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((d) => (
+              <div key={d} className="calDayName">{d}</div>
+            ))}
 
-              {Array.from({ length: 31 }, (_, i) => (
-                <div key={i} className="calDate">{i + 1}</div>
-              ))}
-            </div>
+            {Array.from({ length: 31 }, (_, i) => {
+              const day = i + 1;
+              return (
+                <div key={day} className={`calDate ${day === 8 ? "calRed" : ""}`}>
+                  {day}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
 
-      {/* BOTTOM GRID */}
-      <div className="dashboardBottom">
-
-        {/* Assignment */}
-        <div className="whiteCard">
-          <div className="cardHeader">
-            <h3>Assignment</h3>
-            <select className="smallSelect">
-              <option>All</option>
-            </select>
-          </div>
-
-          <div className="listBody">
-            {assignments.map((a, idx) => (
-              <AssignmentCard key={idx} {...a} />
-            ))}
-          </div>
-        </div>
-
-        {/* Notification */}
-        <div className="whiteCard">
-          <div className="cardHeader">
-            <h3>Notification</h3>
-            <select className="smallSelect">
-              <option>All</option>
-            </select>
-          </div>
-
-          <div className="notifBody">
-            {notifications.map((n, idx) => (
-              <NotificationCard key={idx} {...n} />
-            ))}
-          </div>
-        </div>
-
-        {/* Live sessions list */}
-        <div className="whiteCard">
-          <div className="cardHeader">
-            <h3>8 Jan 2026</h3>
-            <select className="smallSelect">
-              <option>All</option>
-            </select>
-          </div>
-
-          <div className="listBody">
-            {todaySessions.map((t, idx) => (
-              <div key={idx} className="todayItem">
-                <p className="todayItem__date">{t.date}</p>
-                <p className="todayItem__title">{t.title}</p>
-                <p className="todayItem__sub">{t.subject}</p>
-                <p className="todayItem__sub">{t.teacher}</p>
-                <p className="todayItem__sub">{t.time}</p>
+      {/* Bottom Section */}
+      {!showAllSessions && (
+        <div className="dashExact__bottom">
+          {/* Left column: Assignment + Quiz */}
+          <div className="dashExact__leftCol">
+            <div className="whiteCard">
+              <div className="cardHeader">
+                <h3>Assignment</h3>
+                <span className="miniArrow">˅</span>
               </div>
-            ))}
+
+              <div className="listBody">
+                {assignments.map((a, idx) => (
+                  <AssignmentCard key={idx} {...a} />
+                ))}
+              </div>
+            </div>
+
+            <div className="whiteCard">
+              <div className="cardHeader">
+                <h3>Quiz</h3>
+                <span className="miniArrow">˅</span>
+              </div>
+
+              <div className="listBody">
+                {quizzes.map((q, idx) => (
+                  <AssignmentCard key={idx} {...q} />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Middle: Notification */}
+          <div className="whiteCard">
+            <div className="cardHeader">
+              <h3>Notification</h3>
+              <DropdownMenu value={notificationFilter} onChange={setNotificationFilter} />
+            </div>
+
+            <div className="notifBody">
+              {filteredNotifications.map((n, idx) => (
+                <NotificationCard key={idx} {...n} />
+              ))}
+            </div>
+          </div>
+
+          {/* Right: Schedule */}
+          <div className="whiteCard">
+            <div className="cardHeader">
+              <h3>8 Jan 2026</h3>
+              <DropdownMenu value={scheduleFilter} onChange={setScheduleFilter} />
+            </div>
+
+            <div className="scheduleList">
+              {filteredSchedule.map((item, idx) => (
+                <div key={idx} className="scheduleItem">
+                  <p className="scheduleDate">{item.date}</p>
+                  <p className="scheduleTitle">{item.title}</p>
+                  <p className="scheduleSub">{item.subject}</p>
+                  <p className="scheduleSub">{item.teacher}</p>
+                  <p className="scheduleSub">{item.time}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-
-        {/* Quiz (bottom left like design) */}
-        <div className="whiteCard dashboardQuiz">
-          <div className="cardHeader">
-            <h3>Quiz</h3>
-            <select className="smallSelect">
-              <option>All</option>
-            </select>
-          </div>
-
-          <div className="listBody">
-            {quizzes.map((q, idx) => (
-              <AssignmentCard key={idx} {...q} />
-            ))}
-          </div>
-        </div>
-
-      </div>
+      )}
     </div>
   );
 }

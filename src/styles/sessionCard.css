@@ -1,30 +1,32 @@
 .sessionCard {
   background: #0a808a;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
   color: white;
-  height: 170px;
+  height: 130px;
   display: flex;
   flex-direction: column;
 }
 
 .sessionCard__img {
   width: 100%;
-  height: 70px;
+  height: 55px;
   object-fit: cover;
 }
 
 .sessionCard__body {
   padding: 8px 10px;
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .sessionCard__subject {
-  font-size: 13px;
+  font-size: 11px;
   margin-bottom: 4px;
+  font-weight: 800;
 }
 
 .sessionCard__text {
   opacity: 0.9;
-  margin: 2px 0;
+  margin: 1px 0;
+  font-size: 10px;
 }
