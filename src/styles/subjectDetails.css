@@ -1,0 +1,276 @@
+/* Page background */
+.subjectDetailsPage {
+  min-height: 100vh;
+  background: #e9e0df;
+  padding: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+/* White big container */
+.subjectDetailsBox {
+  width: 100%;
+  max-width: 1180px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* top row: back + select course center + profile right */
+.subjectDetailsTop {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.backBtn {
+  justify-self: start;
+  background: #d1d5db;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #374151;
+  font-weight: 600;
+}
+
+.selectCourseBtn {
+  justify-self: center;
+  background: #0c5f5f;
+  color: white;
+  border: none;
+  padding: 7px 22px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.profileCircle {
+  justify-self: end;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+}
+
+/* title */
+.subjectNameTitle {
+  font-size: 14px;
+  font-weight: 800;
+  color: #111827;
+  margin: 6px 0 14px 0;
+}
+
+/* TOP GRID */
+.topGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+/* Teacher big card (horizontal) */
+.teacherDetailsCard {
+  background: #eef2f3;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.teacherLeft {
+  flex: 1;
+}
+
+.teacherRight {
+  width: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.teacherPhoto {
+  width: 150px;
+  height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.teacherName {
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.teacherInfoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 18px;
+}
+
+.teacherInfoRow {
+  display: flex;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.label {
+  font-weight: 700;
+  color: #111827;
+}
+
+.value {
+  color: #374151;
+  font-weight: 600;
+}
+
+/* Right small cards */
+.miniStatCard {
+  background: #eef2f3;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.miniStatTitle {
+  font-size: 12px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.miniStatNumber {
+  font-size: 34px;
+  font-weight: 900;
+  color: #0a7c86;
+  line-height: 1;
+}
+
+.miniStatText {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0a7c86;
+}
+
+/* second row grid */
+.secondGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+/* upcoming live sessions wide */
+.liveSessionsCard {
+  background: #eef2f3;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.cardTitleMain {
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.sessionsGridInside {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.sessionItem {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.sessionItemTitle {
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: #111827;
+}
+
+.sessionItemText {
+  font-size: 10px;
+  color: #4b5563;
+  margin: 2px 0;
+}
+
+/* bottom cards */
+.bottomGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.assignQuizCard {
+  background: #eef2f3;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+.assignQuizCardTitle {
+  font-size: 13px;
+  font-weight: 900;
+  color: #111827;
+  margin-bottom: 14px;
+}
+
+/* metrics */
+.metricsRow {
+  display: flex;
+  justify-content: space-around;
+}
+
+.metricCol {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.blueBig {
+  color: #0a7c86;
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.metricText {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0a7c86;
+}
+
+/* responsive */
+@media (max-width: 950px) {
+  .topGrid,
+  .secondGrid,
+  .bottomGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .teacherDetailsCard {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .teacherInfoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .teacherRight {
+    width: 100%;
+  }
+}

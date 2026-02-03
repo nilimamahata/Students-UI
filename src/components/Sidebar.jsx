@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
 import "../styles/sidebar.css";
+import logo from "../assets/Vector.svg";
 
 // icons
 import { MdDashboardCustomize } from "react-icons/md";
@@ -12,14 +13,14 @@ import { AiOutlineFileDone } from "react-icons/ai";
 export default function Sidebar() {
   const location = useLocation();
 
-  // ✅ ONLY open submenu when current route is inside subjects
+  // ONLY open submenu when current route is inside subjects
   const isSubjectsActive = location.pathname.startsWith("/subjects");
 
   return (
     <aside className="sidebar">
       {/* Brand */}
       <div className="sidebar__brand">
-        <div className="sidebar__logoCircle">S</div>
+        <img src={logo} alt="Logo" className="sidebar__logoCircle" />
         <div>
           <h2 className="sidebar__title">ShikshaCom</h2>
           <p className="sidebar__tagline">Empowerment Through Education</p>
@@ -42,7 +43,7 @@ export default function Sidebar() {
           Subject
         </NavLink>
 
-        {/* ✅ submenu appears only if subject is active */}
+        {/* submenu appears only if subject is active */}
         {isSubjectsActive && (
           <div className="sidebar__subMenu">
             <NavLink className="sidebar__subLink" to="/subjects/assignments">

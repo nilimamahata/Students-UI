@@ -1,0 +1,281 @@
+.assignmentDetailPage {
+  width: 100%;
+  min-height: 100vh;
+  background: #e9e0df;
+  padding: 16px;
+}
+
+/* ✅ Top bar inside page (Back left, Select Course center, profile right) */
+.assignmentTopBar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto 10px auto;
+}
+
+.assignmentBack {
+  justify-self: start;
+  background: #cfd4d8;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #2d2d2d;
+}
+
+.selectCourseBtnTop {
+  justify-self: center;
+  background: #0c5f5f;
+  color: white;
+  border: none;
+  padding: 6px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.profileCircle {
+  justify-self: end;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: white;
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+}
+
+/* ✅ main white container */
+.assignmentDetailBox {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 18px;
+  padding: 16px 18px;
+  min-height: 78vh;
+}
+
+/* subject + search row */
+.assignmentDetailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.assignmentDetailSubject {
+  font-size: 14px;
+  font-weight: 800;
+  color: #222;
+}
+
+/* search */
+.assignmentSearch {
+  display: flex;
+  align-items: center;
+  background: #f0f0f0;
+  padding: 6px 10px;
+  border-radius: 14px;
+  width: 200px;
+}
+
+.assignmentSearch input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 12px;
+}
+
+.assignmentSearchIcon {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+/* ✅ big grey box content */
+.assignmentDetailContent {
+  background: #eef2f3;
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  gap: 18px;
+  min-height: 55vh;
+}
+
+/* left assignment info */
+.assignmentDetailLeft {
+  flex: 1;
+}
+
+.assignmentTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.assignmentDetailTitle {
+  font-size: 18px;
+  font-weight: 900;
+  color: #222;
+}
+
+.submittedTopText {
+  font-size: 10px;
+  color: #4b5563;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.assignmentDetailMeta {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #444;
+  font-weight: 600;
+}
+
+.assignmentDetailDue {
+  font-size: 11px;
+  color: #444;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.assignmentDetailDivider {
+  height: 1px;
+  background: #cfd4d8;
+  margin: 12px 0;
+}
+
+.assignmentDetailLabel {
+  font-size: 12px;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 6px;
+}
+
+.assignmentDetailDesc {
+  font-size: 11px;
+  color: #444;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+/* ✅ attached file strip exactly */
+.fileStrip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #d9d9d9;
+  padding: 14px 16px;
+  border-radius: 10px;
+  max-width: 420px;
+}
+
+.fileStripIcon {
+  width: 48px;
+  height: 48px;
+  background: #cfcfcf;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+}
+
+.fileStripName {
+  font-size: 11px;
+  font-weight: 700;
+  color: #222;
+}
+
+/* RIGHT: Your work card */
+.assignmentDetailRight {
+  width: 220px;
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  height: fit-content;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.yourWorkTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.assignmentDetailWorkTitle {
+  font-size: 12px;
+  font-weight: 900;
+  color: #222;
+}
+
+.yourWorkDate {
+  font-size: 10px;
+  font-weight: 700;
+  color: #6b7280;
+}
+
+/* Upload button */
+.assignmentDetailUploadBtn {
+  width: 100%;
+  background: #e5e7eb;
+  border: none;
+  padding: 9px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #333;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* Submit button */
+.assignmentDetailSubmitBtn {
+  width: 100%;
+  background: #0a7c86;
+  border: none;
+  padding: 9px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  color: white;
+  cursor: pointer;
+}
+
+.assignmentDetailSubmitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* After submit buttons */
+.openFileBtn {
+  width: 100%;
+  background: #e5e7eb;
+  border: none;
+  padding: 9px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #333;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.submittedBtn {
+  width: 100%;
+  background: #0a7c86;
+  border: none;
+  padding: 9px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  color: white;
+}

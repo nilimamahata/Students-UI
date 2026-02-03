@@ -23,11 +23,16 @@
   color: #444;
 }
 
-/* ✅ center select course button */
-.header__btn {
+/* ✅ Wrapper for button + dropdown */
+.header__courseWrap {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  top: 18px; /* align like figma */
+}
+
+/* ✅ Select course button */
+.header__btn {
   background: #0a4d55;
   color: white;
   border: none;
@@ -36,6 +41,30 @@
   cursor: pointer;
   font-weight: 700;
   font-size: 12px;
+  min-width: 140px;
+  text-align: center;
+}
+
+/* ✅ Dropdown menu */
+.header__dropdown {
+  margin-top: 6px;
+  width: 100%;
+  background: #0a808a;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.header__dropdownItem {
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+}
+
+.header__dropdownItem:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .header__right {
