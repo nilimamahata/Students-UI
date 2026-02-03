@@ -1,0 +1,186 @@
+/* Study Material List Page */
+.studyMaterialPage {
+  width: 100%;
+  background: #ecf0ef;
+  min-height: 100%;
+}
+
+.studyMaterialBox {
+  width: 100%;
+  background: white;
+  border-radius: 18px;
+  padding: 20px 24px;
+  min-height: 82vh;
+}
+
+/* Back Button */
+.studyMaterialBack {
+  background: #0a808a;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.studyMaterialBack:hover {
+  background: #097a83;
+}
+
+/* Header with Title and Search */
+.studyMaterialHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Subject Title */
+.studyMaterialTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+/* Search */
+.studyMaterialSearch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f2f2f2;
+  padding: 8px 12px;
+  border-radius: 8px;
+  width: 200px;
+}
+
+.studyMaterialSearch input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font-size: 12px;
+}
+
+.studyMaterialSearchIcon {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+/* Content Area with teal background */
+.studyMaterialContent {
+  background: #e8f4f4;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+/* Table Wrapper */
+.studyMaterialTableWrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Chapters Table */
+.studyMaterialTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+.studyMaterialTable thead tr {
+  background: transparent;
+}
+
+.studyMaterialTable th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+.studyMaterialTable tbody tr {
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+
+.studyMaterialTable td {
+  padding: 16px;
+  font-size: 13px;
+  color: #555;
+}
+
+.studyMaterialTable td:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.studyMaterialTable td:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.studyMaterialTable th:first-child,
+.studyMaterialTable td:first-child {
+  width: 40%;
+}
+
+.studyMaterialTable th:nth-child(2),
+.studyMaterialTable td:nth-child(2) {
+  width: 25%;
+}
+
+.studyMaterialTable th:last-child,
+.studyMaterialTable td:last-child {
+  width: 35%;
+  text-align: right;
+}
+
+/* Action Buttons */
+.studyMaterialActions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.studyMaterialViewBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background: #47B27D;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.studyMaterialViewBtn:hover {
+  background: #3da06e;
+}
+
+.studyMaterialDownloadBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background: #488FB3;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.studyMaterialDownloadBtn:hover {
+  background: #3d7a9a;
+}

@@ -1,0 +1,132 @@
+/* Recording Detail Page */
+.recordingDetailPage {
+  width: 100%;
+  background: #ecf0ef;
+  min-height: 100%;
+}
+
+.recordingDetailBox {
+  width: 100%;
+  background: white;
+  border-radius: 18px;
+  padding: 20px 24px;
+  min-height: 82vh;
+}
+
+/* Back Button */
+.recordingDetailBack {
+  background: #0a808a;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.recordingDetailBack:hover {
+  background: #097a83;
+}
+
+/* Header with Title and Search */
+.recordingDetailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.recordingDetailTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+}
+
+.recordingDetailSearch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f2f2f2;
+  padding: 8px 12px;
+  border-radius: 8px;
+  width: 200px;
+}
+
+.recordingDetailSearch input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font-size: 12px;
+}
+
+.recordingDetailSearchIcon {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+/* Video Player */
+.recordingDetailPlayer {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 24px;
+}
+
+.recordingDetailVideo {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.recordingDetailVideoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Video Info */
+.recordingDetailInfo {
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px 0;
+}
+
+.recordingDetailInfoLeft {
+  text-align: left;
+}
+
+.recordingDetailInfoRight {
+  text-align: right;
+}
+
+.recordingDetailInfoTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.recordingDetailInfoTeacher {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.recordingDetailInfoDate {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.recordingDetailInfoDuration {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
