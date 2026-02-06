@@ -104,7 +104,11 @@ export default function SubjectsAssignments() {
       },
     ];
 
-/*   // example for backend //
+    setPendingData(mockPendingData);
+    setCompletedData(mockCompletedData);
+  }, []);
+
+{/*   // example for backend //
 
   useEffect(() => {
   fetch("/api/subjects-assignments")
@@ -115,11 +119,7 @@ export default function SubjectsAssignments() {
     });
 }, []);
 
-*/
-
-    setPendingData(mockPendingData);
-    setCompletedData(mockCompletedData);
-  }, []);
+*/}
 
   return (
     <div className="assignmentPage">

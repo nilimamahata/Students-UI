@@ -14,3 +14,6 @@ export default function RecordingCard({ img, subject, sessionTitle, teacher, ses
   );
 
 }
+
+
+

@@ -31,6 +31,7 @@ export default function StudyMaterialList() {
     setChaptersData(mockChaptersData);
   }, []);
 
+
   const handleView = (chapter) => {
     // Open file in new tab for viewing
     window.open(chapter.fileUrl, "_blank");

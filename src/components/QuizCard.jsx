@@ -14,3 +14,5 @@ export default function QuizCard({ img, title, teacher, deadline, onClick }) {
     </div>
   );
 }
+
+

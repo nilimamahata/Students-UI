@@ -13,3 +13,5 @@ export default function SessionCard({ img, subject, topic, teacher, dateTime }) 
     </div>
   );
 }
+
+

@@ -12,3 +12,5 @@ export default function AssignmentCard({ title, teacher, due }) {
     </div>
   );
 }
+  
+

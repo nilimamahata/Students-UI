@@ -13,3 +13,6 @@ export default function NotificationCard({ title, subject, teacher, time }) {
     </div>
   );
 }
+
+
+

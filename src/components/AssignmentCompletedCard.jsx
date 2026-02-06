@@ -17,3 +17,6 @@ export default function AssignmentCompletedCard({ img, title, teacher, completed
 
 }
 
+
+
+

@@ -80,6 +80,19 @@ export default function QuizList() {
     setCompletedQuizzes(mockCompletedQuizzes);
   }, []);
 
+{/*   // example for backend //
+
+  useEffect(() => {
+  fetch(`/api/subjects/${subjectId}/quizzes`)
+    .then((res) => res.json())
+    .then((data) => {
+      setPendingQuizzes(data.pending);
+      setCompletedQuizzes(data.completed);
+    });
+}, [subjectId]);
+
+*/}
+
   const quizzes = activeTab === "pending" ? pendingQuizzes : completedQuizzes;
 
   const handleQuizClick = (quiz) => {
