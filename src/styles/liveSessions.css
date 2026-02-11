@@ -3,7 +3,7 @@
   position: relative;
 }
 
-/* ✅ back button in header area */
+/* back button in header area */
 .liveBackBtnHeader {
   background: #cfd4d8;
   border: none;
@@ -27,7 +27,7 @@
   min-height: 82vh;
 }
 
-/* ✅ title + search same row */
+/* title + search same row */
 .liveTitleRow {
   display: flex;
   justify-content: space-between;
@@ -66,14 +66,14 @@
   opacity: 0.6;
 }
 
-/* ✅ grid should fill like figma */
+/* grid should fill like figma */
 .liveGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 22px;
 }
 
-/* ✅ card exact bigger size */
+/* card exact bigger size */
 .liveCard {
   background: #0a808a;
   border-radius: 10px;
