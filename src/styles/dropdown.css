@@ -1,0 +1,60 @@
+.dd {
+  position: relative;
+  display: inline-block;
+}
+
+.dd__btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #ddd;
+  background: #f7f7f7;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 11px;
+  min-width: 80px;
+}
+
+.dd__value {
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.dd__arrow {
+  font-weight: 900;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.dd__menu {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  width: 130px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  z-index: 50;
+}
+
+.dd__item {
+  width: 100%;
+  border: none;
+  background: white;
+  text-align: left;
+  padding: 8px 10px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.dd__item:hover {
+  background: #f1f6f6;
+}
+
+.dd__item.active {
+  font-weight: 800;
+  background: #e7f3f3;
+}

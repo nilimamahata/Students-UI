@@ -1,0 +1,60 @@
+.studentLayout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ================= SIDEBAR ================= */
+.studentLayout__sidebar {
+  width: 250px;
+  transition: 0.3s ease;
+}
+
+/* ================= RIGHT SIDE ================= */
+.studentLayout__right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.studentLayout__page {
+  flex: 1;
+  padding: 20px;
+  
+}
+
+/* ================= OVERLAY ================= */
+.mobileOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 99;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .studentLayout {
+    display: block;
+  }
+
+  .studentLayout__sidebar {
+    position: fixed;
+    left: -260px; /* hide */
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    background: #0a808a; /* keep your original color */
+    z-index: 100;
+  }
+
+  .studentLayout__sidebar.showSidebar {
+    left: 0;
+  }
+
+  .studentLayout__right {
+    width: 100%;
+  }
+}

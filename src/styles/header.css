@@ -1,0 +1,104 @@
+.header {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.header__left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.header__title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.header__subtitle {
+  font-size: 11px;
+  color: #444;
+}
+
+/* ✅ Wrapper for button + dropdown */
+.header__courseWrap {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 18px; /* align like figma */
+}
+
+/* ✅ Select course button */
+.header__btn {
+  background: #0a4d55;
+  color: white;
+  border: none;
+  padding: 6px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 12px;
+  min-width: 140px;
+  text-align: center;
+}
+
+/* ✅ Dropdown menu */
+.header__dropdown {
+  margin-top: 6px;
+  width: 100%;
+  background: #0a808a;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.header__dropdownItem {
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+}
+
+.header__dropdownItem:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+}
+/*  Hamburger */
+.header__hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+  .header {
+    padding-left: 16px;
+  }
+
+  .header__hamburger {
+    display: block;
+  }
+
+  .header__courseWrap {
+    display: none; /* hide dropdown on small screens if needed */
+  }
+}

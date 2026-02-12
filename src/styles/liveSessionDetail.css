@@ -1,0 +1,132 @@
+.liveSessionDetailPage {
+  width: 100%;
+}
+
+/* White container */
+.liveSessionDetailBox {
+  width: 100%;
+  background: white;
+  border-radius: 18px;
+  padding: 18px;
+  min-height: 82vh;
+}
+
+/* top row (Back + Search) */
+.liveSessionTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* back button */
+.liveSessionBackBtn {
+  background: #cfd4d8;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #2d2d2d;
+}
+
+/* search */
+.liveSessionSearch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f1f1;
+  padding: 6px 10px;
+  border-radius: 14px;
+  width: 200px;
+}
+
+.liveSessionSearch input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font-size: 11px;
+}
+
+.liveSessionSearchIcon {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* title */
+.liveSessionTitle {
+  font-size: 14px;
+  font-weight: 900;
+  color: #222;
+  margin-bottom: 14px;
+}
+
+/* video black box */
+.liveSessionVideoBox {
+  width: 72%;
+  height: 280px;
+  background: #111;
+  border-radius: 6px;
+  margin: 0 auto 18px auto;
+}
+
+/* bottom info row */
+.liveSessionInfoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 72%;
+  margin: 0 auto;
+}
+
+/* left bottom text */
+.liveSessionLeftInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.infoText {
+  font-size: 12px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* By section */
+.byBox {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.byText {
+  font-size: 11px;
+  font-weight: 600;
+  color: #222;
+}
+
+.byName {
+  font-size: 11px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* right date/time */
+.liveSessionRightInfo {
+  text-align: right;
+}
+
+.dateText {
+  font-size: 11px;
+  font-weight: 600;
+  color: #222;
+}
+
+.timeText {
+  font-size: 11px;
+  font-weight: 600;
+  color: #222;
+  margin-top: 3px;
+}
