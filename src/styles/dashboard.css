@@ -53,26 +53,47 @@
   font-weight: 800;
 }
 
+/* ================= CLICKABLE HEADERS ================= */
+
+.cardHeader--clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.cardHeader--clickable:hover {
+  opacity: 0.8;
+}
+
 /* ================= ARROWS ================= */
 
 .arrowBtn {
   border: none;
   background: transparent;
   cursor: pointer;
-  font-size: 18px;
-  font-weight: 900;
   padding: 4px 8px;
   border-radius: 8px;
-  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .arrowBtn:hover {
   background: rgba(0, 0, 0, 0.06);
 }
 
+.arrowBtn__chevron {
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.arrowBtn__chevron--up {
+  transform: rotate(180deg);
+}
+
 .miniArrow {
-  font-weight: 900;
-  font-size: 16px;
+  display: flex;
+  align-items: center;
   opacity: 0.7;
 }
 
@@ -207,6 +228,24 @@
   background: #f1f6f6;
   border-radius: 12px;
   padding: 10px;
+}
+
+.scheduleDate {
+  font-size: 10px;
+  font-weight: 800;
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+.scheduleTitle {
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.scheduleSub {
+  font-size: 11px;
+  opacity: 0.85;
+  margin-top: 2px;
 }
 
 /* ================= CLICKABLE + HOVER EFFECTS ================= */

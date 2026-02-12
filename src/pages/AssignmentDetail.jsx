@@ -1,44 +1,106 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "../styles/assignmentDetail.css";
 
 export default function AssignmentDetail() {
   const navigate = useNavigate();
+  const { assignmentId } = useParams(); // dynamic assignment id from URL
 
-  // BEFORE submit
+  /* ===============================
+     STATE
+  =============================== */
+
+  const [assignment, setAssignment] = useState(null);
   const [uploadedFile, setUploadedFile] = useState(null);
-
-  // AFTER submit
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  // submission time (for display)
   const [submittedAt, setSubmittedAt] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  /* ===============================
+     FETCH ASSIGNMENT (BACKEND READY)
+  =============================== */
+
+  useEffect(() => {
+    // MOCK BACKEND RESPONSE (remove later)
+    const mockAssignment = {
+      id: assignmentId,
+      subject: "Subject Name",
+      assignmentNo: "Assignment No. X",
+      teacher: "Miss Ruaifeli",
+      assignedAt: "21 Jan 2026",
+      dueDate: "24 Jan 2026",
+      title: "Biology chapter 1",
+      description: "Answer all the questions on the attached file",
+      attachmentName: "Science biology assignment.pdf",
+
+      // submission will come from backend
+      submission: null,
+      // submission example:
+      // {
+      //   submittedAt: "2026-01-22T10:45:00",
+      //   fileUrl: "https://server/file.pdf"
+      // }
+    };
+
+    setAssignment(mockAssignment);
+
+    if (mockAssignment.submission) {
+      setIsSubmitted(true);
+      setSubmittedAt(new Date(mockAssignment.submission.submittedAt));
+    }
+
+    setLoading(false);
+  }, [assignmentId]);
+
+  /* ===============================
+     FILE UPLOAD
+  =============================== */
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
-    if (file) {
-      setUploadedFile(file);
-    }
+    if (file) setUploadedFile(file);
   };
 
-  const handleSubmit = () => {
+  /* ===============================
+     SUBMIT TO BACKEND
+  =============================== */
+
+  const handleSubmit = async () => {
     if (!uploadedFile) return;
 
-    // UI state
+    // Backend upload format
+    const formData = new FormData();
+    formData.append("file", uploadedFile);
+    formData.append("assignmentId", assignment.id);
+
+    // REAL API (uncomment later)
+    /*
+    await fetch(`/api/assignments/${assignment.id}/submit`, {
+      method: "POST",
+      body: formData,
+    });
+    */
+
     const now = new Date();
     setSubmittedAt(now);
     setIsSubmitted(true);
   };
 
   const handleOpenFile = () => {
-    if (!uploadedFile) return;
-    alert(`Opening file: ${uploadedFile.name}`);
+    alert("Open file from backend URL");
   };
+
+  /* ===============================
+     DATE FORMATTERS
+  =============================== */
 
   const formatSubmittedTop = (dateObj) => {
     if (!dateObj) return "";
-    const options = { day: "2-digit", month: "short", year: "numeric" };
-    const d = dateObj.toLocaleDateString("en-GB", options);
+    const d = dateObj.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
     const t = dateObj.toLocaleTimeString("en-US", {
       hour: "numeric",
       minute: "2-digit",
@@ -49,9 +111,18 @@ export default function AssignmentDetail() {
 
   const formatSmallDate = (dateObj) => {
     if (!dateObj) return "";
-    const options = { day: "2-digit", month: "short", year: "numeric" };
-    return dateObj.toLocaleDateString("en-GB", options);
+    return dateObj.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    });
   };
+
+  if (loading) return <div>Loading...</div>;
+
+  /* ===============================
+     UI
+  =============================== */
 
   return (
     <div className="assignmentDetailPage">
@@ -66,7 +137,7 @@ export default function AssignmentDetail() {
       <div className="assignmentDetailBox">
         {/* Subject + Search row */}
         <div className="assignmentDetailHeader">
-          <h2 className="assignmentDetailSubject">Subject Name</h2>
+          <h2 className="assignmentDetailSubject">{assignment.subject}</h2>
           <div className="assignmentSearch">
             <input placeholder="Search..." />
             <span className="assignmentSearchIcon">🔍</span>
@@ -78,7 +149,7 @@ export default function AssignmentDetail() {
           {/* LEFT: Assignment information */}
           <div className="assignmentDetailLeft">
             <div className="assignmentTitleRow">
-              <h3 className="assignmentDetailTitle">Assignment No. X</h3>
+              <h3 className="assignmentDetailTitle">{assignment.assignmentNo}</h3>
 
               {/* shown only after submit */}
               {isSubmitted && (
@@ -88,14 +159,14 @@ export default function AssignmentDetail() {
               )}
             </div>
 
-            <p className="assignmentDetailMeta">Miss Ruaifeli - 21 Jan 2026</p>
-            <p className="assignmentDetailDue">Due Date: 24 Jan 2026</p>
+            <p className="assignmentDetailMeta">{assignment.teacher} - {assignment.assignedAt}</p>
+            <p className="assignmentDetailDue">Due Date: {assignment.dueDate}</p>
 
             <div className="assignmentDetailDivider"></div>
 
-            <p className="assignmentDetailLabel">Title: Biology chapter 1</p>
+            <p className="assignmentDetailLabel">Title: {assignment.title}</p>
             <p className="assignmentDetailDesc">
-              Description: Answer all the questions on the attached file
+              Description: {assignment.description}
             </p>
 
             {/* Attached file strip */}
@@ -126,7 +197,7 @@ export default function AssignmentDetail() {
               </div>
 
               <div className="fileStripName">
-                Science biology assignment [file name]
+                {assignment.attachmentName}
               </div>
             </div>
           </div>
