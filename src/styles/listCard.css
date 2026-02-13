@@ -1,40 +1,61 @@
-/* ================= LIST ITEMS ================= */
+/* ================= LIST ITEM ================= */
 
 .listItem {
+  position: relative;
   display: flex;
   justify-content: space-between;
-  background: #f1f6f6;
-  border-radius: 10px;
-  padding: 10px;
+  align-items: center;
 
-  /* clickable */
+  background: #ffd6d6;
+  border-radius: 10px;
+  padding: 12px 14px 12px 20px;
+  margin-bottom: 12px;
+
   cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
+/* Left green bar */
+.listItem::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: #2ecc71;
+  border-radius: 4px;
+}
+
+/* Hover */
 .listItem:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
-/* Disable inner clicks so parent handles click */
+/* Disable inner clicks */
 .listItem * {
   pointer-events: none;
 }
 
+/* Text */
 .listItem__title {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14px;
+  margin-bottom: 4px;
 }
 
 .listItem__sub {
-  font-size: 13px;
-  opacity: 1;
+  font-size: 12px;
+  color: #222;
 }
 
+/* Arrow */
 .listItem__right {
-  font-size: 16px;
-  opacity: 0.6;
+  font-size: 18px;
+  color: #F79E9E;
+  opacity: 0.8;
   transition: transform 0.2s ease;
 }
 
@@ -42,54 +63,72 @@
   transform: translateX(4px);
 }
 
-/* ================= NOTIFICATION ================= */
+
+/* ================= NOTIFICATION ITEM ================= */
 
 .notifItem {
+  position: relative;
   display: flex;
   gap: 10px;
-  margin: 5px;
-  background: #f1f6f6;
-  border-radius: 10px;
-  padding: 10px;
 
-  /* clickable */
+  background: #eef7ff;
+  border-radius: 10px;
+  padding: 12px 14px 12px 20px;
+  margin-bottom: 12px;
+
   cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
+/* Hover */
 .notifItem:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
+/* Disable inner clicks */
 .notifItem * {
   pointer-events: none;
 }
 
+/* Left bar */
 .notifItem__bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
   width: 5px;
-  border-radius: 4px;
   background: #0a808a;
+  border-radius: 4px;
+}
+
+/* Content */
+.notifItem__content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .notifItem__title {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14px;
 }
 
 .notifItem__sub {
-  font-size: 13px;
-  opacity: 1;
+  font-size: 12px;
+  color: #333;
 }
 
-/* ================= TODAY / SCHEDULE ================= */
+
+/* ================= TODAY / SCHEDULE ITEM ================= */
 
 .todayItem {
   background: #f1f6f6;
   border-radius: 10px;
   padding: 10px;
+  margin-bottom: 10px;
 
-  /* clickable */
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -118,89 +157,4 @@
 .todayItem__sub {
   font-size: 11px;
   opacity: 0.8;
-}
-/* MAIN CARD */
-.listItem {
-  position: relative;
-  background-color: #ffd6d6; /* light red */
-  border-radius: 8px;
-  padding: 12px 14px 12px 20px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* GREEN LEFT LINE */
-.listItem::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 5px;
-  background-color: #2ecc71;
-  border-radius: 4px;
-}
-
-/* TITLE */
-.listItem__title {
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-
-/* SUB TEXT */
-.listItem__sub {
-  font-size: 12px;
-  color: #222;
-}
-
-/* RIGHT ARROW */
-.listItem__right {
-  font-size: 20px;
-  color: #F79E9E;
-}
-/* ================= NOTIFICATION CARD ================= */
-
-.notifItem {
-  position: relative;
-  background-color: #eef7ff; /* light blue */
-  border-radius: 8px;
-  padding: 12px 14px 12px 20px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-  display: flex;
-  gap: 10px;
-}
-
-/* GREEN LEFT LINE */
-.notifItem__bar {
-  position: absolute;
-  left: 0;
-  top: 8px;
-  bottom: 8px;
-  width: 5px;
-  background-color: #2ecc71;
-  border-radius: 4px;
-}
-
-/* CONTENT */
-.notifItem__content {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-/* TITLE */
-.notifItem__title {
-  font-weight: 600;
-  font-size: 14px;
-}
-
-/* SUB TEXT */
-.notifItem__sub {
-  font-size: 12px;
-  color: #333;
 }

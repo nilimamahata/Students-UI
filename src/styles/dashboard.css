@@ -1,11 +1,8 @@
-/* ================= DASHBOARD LAYOUT ================= */
-
 .dashExact {
   display: flex;
   flex-direction: column;
 }
 
-/* ---------- TOP ROW ---------- */
 /* Sessions + Calendar */
 .dashExact__top {
   display: grid;
@@ -14,7 +11,6 @@
   align-items: stretch;
 }
 
-/* ---------- BOTTOM ROW ---------- */
 /* Assignment+Quiz | Notification | Schedule */
 .dashExact__bottom {
   display: grid;
@@ -30,7 +26,7 @@
   gap: 18px;
 }
 
-/* ================= WHITE CARD ================= */
+/* white card*/
 
 .whiteCard {
   background: #ffffff;
@@ -53,7 +49,7 @@
   font-weight: 800;
 }
 
-/* ================= CLICKABLE HEADERS ================= */
+/*  Clickable Header  */
 
 .cardHeader--clickable {
   cursor: pointer;
@@ -64,7 +60,7 @@
   opacity: 0.8;
 }
 
-/* ================= ARROWS ================= */
+/* arrows */
 
 .arrowBtn {
   border: none;
@@ -97,8 +93,6 @@
   opacity: 0.7;
 }
 
-/* ================= SESSIONS GRID ================= */
-
 .sessionsGridCollapsed {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -126,7 +120,7 @@
   border-radius: 10px;
 }
 
-/* ================= LISTS ================= */
+/* lists */
 
 .listBody,
 .notifBody {
@@ -135,8 +129,7 @@
   gap: 10px;
 }
 
-/* ================= CALENDAR ================= */
-
+/* calender*/
 .calendarBox {
   background: white;
   border-radius: 18px;
@@ -213,7 +206,7 @@
   visibility: hidden;
 }
 
-/* ================= SCHEDULE ================= */
+/* Schedule  */
 
 .scheduleList {
   display: flex;
@@ -248,8 +241,6 @@
   margin-top: 2px;
 }
 
-/* ================= CLICKABLE + HOVER EFFECTS ================= */
-
 .listItem,
 .notifItem,
 .sessionCard,
@@ -283,7 +274,6 @@
   transform: translateX(4px);
 }
 
-/* ================= RESPONSIVE ================= */
 
 @media (max-width: 1100px) {
   .dashExact__top {
@@ -304,119 +294,4 @@
   .dashExact__bottom {
     grid-template-columns: 1fr;
   }
-}
-
-/* ================= MOBILE SLIDER ================= */
-
-.topSingleSlider {
-  display: none;
-  align-items: center;
-  justify-content: space-between;
-  background: #0a808a;
-  padding: 10px 14px;
-  border-radius: 18px;
-  margin-bottom: 20px;
-}
-
-@media (max-width: 768px) {
-  .topSingleSlider {
-    display: flex;
-  }
-}
-
-.mobileOnly {
-  display: none;
-}
-
-.desktopOnly {
-  display: block;
-}
-
-@media (max-width: 700px) {
-  .mobileOnly {
-    display: block;
-  }
-  .desktopOnly {
-    display: none;
-  }
-}
-/* ---------------- MOBILE FIX ---------------- */
-
-.mobileOnly {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .desktopOnly {
-    display: none;
-  }
-
-  .mobileOnly {
-    display: block;
-  }
-
-  .mobileDashboard {
-    position: relative;
-    z-index: 1;
-  }
-
-  .mobileContent {
-    position: relative;
-    z-index: 2;
-    padding: 12px;
-  }
-
-  /* CRITICAL: allow clicks */
-  .mobileContent * {
-    pointer-events: auto;
-  }
-}
-
-.topSliderTabs {
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  background: #fff;
-}
-
-.topSingleSlider {
-display: flex;
-width: 360px;
-height: 40px;
-padding: 10px 0;
-justify-content: center;
-align-items: center;
-}
-.singleTitle {
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 600;
-  text-align: center;
-  flex: 1;                     
-  letter-spacing: 0.2px;       
-}
-.singleArrow {
-  width: 36px;
-  height: 36px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: transparent;
-  border: none;
-  border-radius: 50%;
-
-  color: #ffffff;
-  font-size: 24px;
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-.singleArrow:disabled {
-  opacity: 0.35;      /* faded like design edge */
-  cursor: not-allowed;
-}
-.singleArrow:hover:not(:disabled) {
-  background: rgba(255,255,255,0.12);
 }

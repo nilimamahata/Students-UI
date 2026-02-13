@@ -1,5 +1,5 @@
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
-
+import "../styles/topSliderTabs.css";
 export default function TopSliderTabs({ active, setActive }) {
   const tabs = [
     { id: "notify", label: "Notifications" },

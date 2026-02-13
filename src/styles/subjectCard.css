@@ -32,13 +32,12 @@
   font-size: 10px;
   opacity: 0.9;
 }
-/* ================= MOBILE REDESIGN ================= */
 
 @media (max-width: 768px) {
 
   .subjectCard {
-    width: 100%;          /* Fill grid cell */
-    height: 120px;        /* Shorter card like design */
+    width: 100%;         
+    height: 108px;        
     border-radius: 14px;
     justify-content: center;
     align-items: center;
