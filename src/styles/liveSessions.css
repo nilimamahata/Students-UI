@@ -3,18 +3,15 @@
   position: relative;
 }
 
-/* ✅ back button in header area */
 .liveBackBtnHeader {
-  background: #cfd4d8;
+  background: #0a808a;
   border: none;
   padding: 5px 12px;
   border-radius: 6px;
   font-size: 12px;
   cursor: pointer;
   font-weight: 600;
-  color: #2d2d2d;
-
-  /* keeps it like (top-left above white box) */
+  color: white;
   margin-bottom: 10px;
 }
 
@@ -120,5 +117,27 @@
 @media (max-width: 600px) {
   .liveGrid {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+
+  .liveTitleRow {
+    flex-direction: column;   
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .liveSearch {
+    order: -1;                
+    width: 100%;
+  }
+
+  .liveSearch input {
+    width: 100%;
+  }
+
+  .liveTitle {
+    text-align: center;         
   }
 }

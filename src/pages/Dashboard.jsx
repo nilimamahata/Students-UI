@@ -5,8 +5,6 @@ import NotificationCard from "../components/NotificationCard";
 import DropdownMenu from "../components/DropdownMenu";
 import TopSliderTabs from "../components/TopSliderTabs";
 import "../styles/dashboard.css";
-import QuizCard from "../components/QuizCard";
-
 
 export default function Dashboard() {
   /* ------------------ MOBILE TAB STATE ------------------ */
