@@ -195,7 +195,7 @@
 /* RIGHT: Your work card */
 .assignmentDetailRight {
   width: 220px;
-  background: white;
+  background: #C7E1ED;
   border-radius: 12px;
   padding: 16px;
   height: fit-content;
@@ -224,7 +224,7 @@
 /* Upload button */
 .assignmentDetailUploadBtn {
   width: 100%;
-  background: #e5e7eb;
+  background: #F0F0F0;
   border: none;
   padding: 9px 10px;
   border-radius: 8px;
@@ -240,7 +240,7 @@
 /* Submit button */
 .assignmentDetailSubmitBtn {
   width: 100%;
-  background: #0a7c86;
+  background: #0B7E58;
   border: none;
   padding: 9px 10px;
   border-radius: 8px;
@@ -251,7 +251,7 @@
 }
 
 .assignmentDetailSubmitBtn:disabled {
-  opacity: 0.5;
+  opacity: 0.9;
   cursor: not-allowed;
 }
 
@@ -320,4 +320,12 @@
   .fileStrip {
     max-width: 100%;
   }
+}
+@media (max-width: 460px) {
+.assignmentDetailLeft{
+text-align: center;
+}
+.assignmentTitleRow{
+  justify-content:space-around;
+}
 }

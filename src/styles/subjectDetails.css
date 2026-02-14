@@ -286,12 +286,42 @@
   }
 
 }
-/* ===== HIDE SEARCH BAR ON MOBILE ===== */
 
 @media (max-width: 768px) {
 
   .subjectsSearch {
     display: none;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .teacherDetailsCard {
+    display: flex;
+    flex-direction: row !important;  
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  
+  .teacherInfoGrid {
+    display: block;        
+    flex: 1;
+  }
+  .teacherRight {
+    width: auto;           
+    display: flex;
+    justify-content: flex-end;
+  }
+
+
+  .teacherRight img {
+    width: 90px;
+    height: 90px;
+    border-radius: 16px;
+    object-fit: cover;
   }
 
 }

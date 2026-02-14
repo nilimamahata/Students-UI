@@ -231,7 +231,7 @@
 
 .quizDetailBox {
   width: 100%;
-  background: white;
+  background: #F0F6FA;
   border-radius: 18px;
   padding: 20px 24px;
   min-height: 82vh;
@@ -461,7 +461,7 @@
 }
 
 .quizDetailSubmit:disabled {
-  background: #ccc;
+  background:  #10B981;
   cursor: not-allowed;
 }
 
