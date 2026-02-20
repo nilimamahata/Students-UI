@@ -30,7 +30,8 @@ export default function StudentRoutes() {
       <Route path="subjects" element={<Subjects />} />
       <Route path="subjects/:id" element={<SubjectDetails />} />
       <Route path="subjects/assignments" element={<SubjectsAssignments />} />
-      <Route path="subjects/assignments/:id" element={<AssignmentDetail />} />
+      <Route path="subjects/assignments/:tab" element={<SubjectsAssignments />} />
+      <Route path="subjects/assignments/detail/:id" element={<AssignmentDetail />} />
       <Route path="subjects/quiz" element={<SubjectsQuiz />} />
       <Route path="subjects/quiz/:subjectId" element={<QuizList />} />
       <Route path="subjects/quiz/:subjectId/take/:quizId" element={<QuizDetail />} />

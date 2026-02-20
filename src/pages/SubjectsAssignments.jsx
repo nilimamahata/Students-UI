@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import AssignmentPendingCard from "../components/AssignmentPendingCard";
 import AssignmentCompletedCard from "../components/AssignmentCompletedCard";
 import "../styles/assignmentPending.css";
 
 export default function SubjectsAssignments() {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("pending");
+  const { tab } = useParams();
+  const [activeTab, setActiveTab] = useState(tab || "pending");
+  useEffect(() => {
+  if (tab) {
+    setActiveTab(tab);
+  }
+}, [tab]);
 
   // State for data (future backend data)
   const [pendingData, setPendingData] = useState([]);

@@ -141,7 +141,9 @@ export default function SubjectDetails() {
           </div>
 
           {/* Recordings card small */}
-          <div className="miniStatCard">
+          <div className="miniStatCard" 
+           onClick={() => navigate(`/subjects/recordings/${subjectId}`)}
+           style={{ cursor: "pointer" }}>
             <h3 className="miniStatTitle">Session Recordings</h3>
             <div className="miniStatNumber">{subjectDetails.recordingsCount}</div>
             <div className="miniStatText">Recordings</div>
@@ -166,7 +168,9 @@ export default function SubjectDetails() {
           </div>
 
           {/* Study materials small */}
-          <div className="miniStatCard">
+          <div className="miniStatCard"
+            onClick={() => navigate(`/subjects/study-material/${subjectId}`)}
+            style={{ cursor: "pointer" }} >
             <h3 className="miniStatTitle">Study Materials</h3>
             <div className="miniStatNumber">{subjectDetails.studyMaterialsCount}</div>
             <div className="miniStatText">Documents</div>
@@ -176,44 +180,72 @@ export default function SubjectDetails() {
         {/* Bottom grid: Assignments + Quiz */}
         <div className="bottomGrid">
           <div className="assignQuizCard">
-            <h2 className="assignQuizCardTitle">Assignments</h2>
+  <h2 className="assignQuizCardTitle">Assignments</h2>
 
-            <div className="metricsRow">
-              <div className="metricCol">
-                <div className="metricNum blueBig">{subjectDetails.assignments.pending}</div>
-                <div className="metricText">Pending</div>
-              </div>
+  <div className="metricsRow">
 
-              <div className="metricCol">
-                <div className="metricNum blueBig">{subjectDetails.assignments.completed}</div>
-                <div className="metricText">Completed</div>
-              </div>
+    <div
+      className="metricCol"
+      onClick={() => navigate("/subjects/assignments/pending")}
+    >
+      <div className="metricNum blueBig">
+        {subjectDetails.assignments.pending}
+      </div>
+      <div className="metricText">Pending</div>
+    </div>
 
-              <div className="metricCol">
-                <div className="metricNum blueBig">{subjectDetails.assignments.total}</div>
-                <div className="metricText">Total</div>
-              </div>
-            </div>
-          </div>
+    <div
+      className="metricCol"
+      onClick={() => navigate("/subjects/assignments/completed")}
+    >
+      <div className="metricNum blueBig">
+        {subjectDetails.assignments.completed}
+      </div>
+      <div className="metricText">Completed</div>
+    </div>
+
+    <div className="metricCol">
+      <div className="metricNum blueBig">
+        {subjectDetails.assignments.total}
+      </div>
+      <div className="metricText">Total</div>
+    </div>
+
+  </div>
+</div>
 
           <div className="assignQuizCard">
-            <h2 className="assignQuizCardTitle">Quiz</h2>
+  <h2 className="assignQuizCardTitle">Quiz</h2>
 
-            <div className="metricsRow">
-              <div className="metricCol">
-                <div className="metricNum blueBig">{subjectDetails.quizzes.pending}</div>
-                <div className="metricText">Pending</div>
-              </div>
+  <div className="metricsRow">
 
-              <div className="metricCol">
-                <div className="metricNum blueBig">{subjectDetails.quizzes.completed}</div>
-                <div className="metricText">Completed</div>
-              </div>
+    <div
+      className="metricCol"
+      onClick={() => navigate(`/subjects/quiz/${subjectId}?tab=pending`)}
+    >
+      <div className="metricNum blueBig">
+        {subjectDetails.quizzes.pending}
+      </div>
+      <div className="metricText">Pending</div>
+    </div>
 
-              <div className="metricCol">
-                <div className="metricNum blueBig">{subjectDetails.quizzes.total}</div>
-                <div className="metricText">Total</div>
-              </div>
+    <div
+      className="metricCol"
+      onClick={() => navigate(`/subjects/quiz/${subjectId}?tab=completed`)}
+    >
+      <div className="metricNum blueBig">
+        {subjectDetails.quizzes.completed}
+      </div>
+      <div className="metricText">Completed</div>
+    </div>
+
+    <div className="metricCol">
+      <div className="metricNum blueBig">
+        {subjectDetails.quizzes.total}
+      </div>
+      <div className="metricText">Total</div>
+    </div>
+
             </div>
           </div>
         </div>

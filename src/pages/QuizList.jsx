@@ -1,13 +1,19 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import QuizCard from "../components/QuizCard";
 import "../styles/quiz.css";
 
 export default function QuizList() {
   const navigate = useNavigate();
   const { subjectId } = useParams();
-  const [activeTab, setActiveTab] = useState("pending");
-
+  const [searchParams] = useSearchParams();
+  const tab = searchParams.get("tab");
+  const [activeTab, setActiveTab] = useState(tab || "pending");
+  useEffect(() => {
+  if (tab) {
+    setActiveTab(tab);
+  }
+}, [tab]);
   // State for data (future backend data)
   const [pendingQuizzes, setPendingQuizzes] = useState([]);
   const [completedQuizzes, setCompletedQuizzes] = useState([]);

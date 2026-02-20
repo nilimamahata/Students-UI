@@ -152,7 +152,7 @@
 .miniStatNumber {
   font-size: 34px;
   font-weight: 900;
-  color: #0a7c86;
+  color: #7BBEC7;
   line-height: 1;
   text-align: center;
 }
@@ -244,7 +244,7 @@
 }
 
 .blueBig {
-  color: #0a7c86;
+  color: #7BBEC7;
   font-size: 34px;
   font-weight: 900;
   line-height: 1;
@@ -324,4 +324,29 @@
     object-fit: cover;
   }
 
+}
+.metricCol{
+ cursor:pointer;
+}
+
+.metricCol:hover{
+ transform:scale(1.05);
+}
+.miniStatNumber {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.miniStatNumber:hover {
+  transform: scale(1.15);
+  color: #0a7c86;
+}
+.blueBig {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.blueBig:hover {
+  transform: scale(1.15);
+  color: #0a7c86;
+  
 }
