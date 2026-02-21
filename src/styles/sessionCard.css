@@ -86,7 +86,7 @@
 
 @media (min-width: 1024px) {
   .sessionCard {
-    max-width: 280px;
+    width: 100%;
   }
 
   .sessionCard__img {

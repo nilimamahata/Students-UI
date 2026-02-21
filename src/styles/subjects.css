@@ -2,6 +2,12 @@
   width: 100%;
 }
 
+.subjectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 212px);
+  gap: 24px;
+}
+
 .subjectsBox {
   width: 100%;
   background: white;
@@ -45,12 +51,4 @@
 .subjectsSearchIcon {
   font-size: 14px;
   opacity: 0.7;
-}
-
-/* ✅ exact responsive grid */
-.subjectsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 18px;
-  justify-items: start;
 }

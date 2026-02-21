@@ -5,7 +5,7 @@ export default function AssignmentPendingCard({ id, img, title, teacher, deadlin
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/subjects/assignments/${id || 1}`);
+    navigate(`/subjects/assignments/detail/${id || 1}`);
   };
 
   return (
