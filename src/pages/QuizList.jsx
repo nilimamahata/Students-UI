@@ -21,65 +21,17 @@ export default function QuizList() {
   // Mock data (simulates backend response)
   useEffect(() => {
     const mockPendingQuizzes = [
-    {
-      id: 1,
-      img: "https://images.unsplash.com/photo-1513258496099-48168024aec0?w=600",
-      title: "Asgn./Quiz - X",
-      teacher: "Teacher Name",
-      deadline: "Date & Time (Deadline)",
-    },
-    {
-      id: 2,
-      img: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600",
-      title: "Asgn./Quiz - X",
-      teacher: "Teacher Name",
-      deadline: "Date & Time (Deadline)",
-    },
-    {
-      id: 3,
-      img: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600",
-      title: "Asgn./Quiz - X",
-      teacher: "Teacher Name",
-      deadline: "Date & Time (Deadline)",
-    },
-    {
-      id: 4,
-      img: "https://images.unsplash.com/photo-1544717305-2782549b5136?w=600",
-      title: "Asgn./Quiz - X",
-      teacher: "Teacher Name",
-      deadline: "Date & Time (Deadline)",
-    },
-    {
-      id: 5,
-      img: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600",
-      title: "Asgn./Quiz - X",
-      teacher: "Teacher Name",
-      deadline: "Date & Time (Deadline)",
-    },
-    {
-      id: 6,
-      img: "https://images.unsplash.com/photo-1454165205744-3b78555e5572?w=600",
-      title: "Asgn./Quiz - X",
-      teacher: "Teacher Name",
-      deadline: "Date & Time (Deadline)",
-    },
+    { id: 1, title: "Asgn./Quiz - X", teacher: "Teacher Name", deadline: "Date & Time (Deadline)" },
+    { id: 2, title: "Asgn./Quiz - X", teacher: "Teacher Name", deadline: "Date & Time (Deadline)" },
+    { id: 3, title: "Asgn./Quiz - X", teacher: "Teacher Name", deadline: "Date & Time (Deadline)" },
+    { id: 4, title: "Asgn./Quiz - X", teacher: "Teacher Name", deadline: "Date & Time (Deadline)" },
+    { id: 5, title: "Asgn./Quiz - X", teacher: "Teacher Name", deadline: "Date & Time (Deadline)" },
+    { id: 6, title: "Asgn./Quiz - X", teacher: "Teacher Name", deadline: "Date & Time (Deadline)" },
   ];
 
     const mockCompletedQuizzes = [
-      {
-        id: 101,
-        img: "https://images.unsplash.com/photo-1513258496099-48168024aec0?w=600",
-        title: "Asgn./Quiz - X",
-        teacher: "Teacher Name",
-        deadline: "Date & Time (Deadline)",
-      },
-      {
-        id: 102,
-        img: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600",
-        title: "Asgn./Quiz - X",
-        teacher: "Teacher Name",
-        deadline: "Date & Time (Deadline)",
-      },
+      { id: 101, title: "Asgn./Quiz - X", teacher: "Teacher Name", deadline: "Date & Time (Completed)" },
+      { id: 102, title: "Asgn./Quiz - X", teacher: "Teacher Name", deadline: "Date & Time (Completed)" },
     ];
 
     setPendingQuizzes(mockPendingQuizzes);
@@ -111,43 +63,44 @@ export default function QuizList() {
 
   return (
     <div className="quizListPage">
-      {/* Back button in grey header area (like screenshot) */}
+      {/* Back button — outside the header box, above it */}
       <button className="quizBackHeader" onClick={() => navigate(-1)}>
         &lt; Back
       </button>
 
-      <div className="quizListBox">
-        {/* Title center */}
-        <h2 className="quizListTitle">Subject Name</h2>
-
-        {/* Tabs + Search Row */}
-        <div className="quizTopRow">
-          <div className="quizTabs">
-            <button
-              className={`quizTab ${activeTab === "pending" ? "quizTabActive" : ""}`}
-              onClick={() => setActiveTab("pending")}
-            >
-              Pending
-            </button>
-
-            <button
-              className={`quizTab ${activeTab === "completed" ? "quizTabActive" : ""}`}
-              onClick={() => setActiveTab("completed")}
-            >
-              Completed
-            </button>
-          </div>
-
+      {/* Header box — fixed, does not scroll */}
+      <div className="quizListHeaderBox">
+        {/* Top row: title | search */}
+        <div className="quizListHeaderRow">
+          <h2 className="quizListTitle">Subject Name</h2>
           <div className="quizSearch">
             <input placeholder="Search..." />
             <span className="quizSearchIcon">🔍</span>
           </div>
         </div>
 
-        {/* Grid */}
+        {/* Tabs — attached to bottom of header */}
+        <div className="quizTabs">
+          <button
+            className={`quizTab ${activeTab === "pending" ? "quizTabActive" : ""}`}
+            onClick={() => setActiveTab("pending")}
+          >
+            Pending
+          </button>
+          <button
+            className={`quizTab ${activeTab === "completed" ? "quizTabActive" : ""}`}
+            onClick={() => setActiveTab("completed")}
+          >
+            Completed
+          </button>
+        </div>
+      </div>
+
+      {/* Body box — scrolls */}
+      <div className="quizListBodyBox">
         <div className="quizGrid">
           {quizzes.map((quiz) => (
-            <QuizCard key={quiz.id} {...quiz} onClick={() => handleQuizClick(quiz)} />
+            <QuizCard key={quiz.id} {...quiz} isCompleted={activeTab === "completed"} onClick={() => handleQuizClick(quiz)} />
           ))}
         </div>
       </div>

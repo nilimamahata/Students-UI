@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import SubjectCard from "../components/SubjectCard";
+import PageHeader from "../components/PageHeader";
 import "../styles/subjects.css";
 
 export default function SubjectsQuiz() {
@@ -71,16 +72,11 @@ export default function SubjectsQuiz() {
 
   return (
     <div className="subjectsPage">
-      <div className="subjectsBox">
-        <div className="subjectsHeader">
-          <h2 className="subjectsTitle">Subjects (Quiz)</h2>
+      <div className="subjectsHeaderBox">
+        <PageHeader title="Quiz" />
+      </div>
 
-          <div className="subjectsSearch">
-            <input placeholder="Search..." />
-            <span className="subjectsSearchIcon">🔍</span>
-          </div>
-        </div>
-
+      <div className="subjectsBodyBox">
         <div className="subjectsGrid">
           {subjectData.map((item) => (
             <SubjectCard

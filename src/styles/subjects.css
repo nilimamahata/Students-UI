@@ -1,5 +1,34 @@
 .subjectsPage {
+  flex: 1;
+  min-height: 0;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.subjectsHeaderBox {
+  width: 100%;
+  background: white;
+  border-radius: 18px 18px 0 0;
+  padding: 20px 24px;
+}
+
+/* Remove the internal divider line — the two boxes are already separate */
+.subjectsHeaderBox .pageHeader {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.subjectsBodyBox {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  width: 100%;
+  background: white;
+  border-radius: 0 0 18px 18px;
+  padding: 24px;
 }
 
 .subjectsGrid {
@@ -8,47 +37,21 @@
   gap: 24px;
 }
 
-.subjectsBox {
-  width: 100%;
-  background: white;
-  border-radius: 18px;
-  padding: 20px;
-  min-height: 82vh;
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .subjectsHeaderBox {
+    padding: 14px 16px;
+    border-radius: 0;
+  }
+
+  .subjectsBodyBox {
+    padding: 16px;
+    border-radius: 0;
+  }
+
+  .subjectsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
 }
 
-/* top row: title + search */
-.subjectsHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 18px;
-}
-
-.subjectsTitle {
-  font-size: 14px;
-  font-weight: 800;
-}
-
-/* Search like figma */
-.subjectsSearch {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #f2f2f2;
-  padding: 6px 10px;
-  border-radius: 14px;
-  width: 220px;
-}
-
-.subjectsSearch input {
-  border: none;
-  outline: none;
-  background: transparent;
-  flex: 1;
-  font-size: 12px;
-}
-
-.subjectsSearchIcon {
-  font-size: 14px;
-  opacity: 0.7;
-}

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/assignmentPending.css";
 
-export default function AssignmentPendingCard({ id, img, title, teacher, deadline }) {
+export default function AssignmentPendingCard({ id, title, teacher, deadline }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -10,10 +10,11 @@ export default function AssignmentPendingCard({ id, img, title, teacher, deadlin
 
   return (
     <div className="assignmentPendingCard" onClick={handleClick}>
-      <img className="assignmentPendingCard__img" src={img} alt={title} />
-      <div className="assignmentPendingCard__info">
-        <h4 className="assignmentPendingCard__title">{title}</h4>
-        <p className="assignmentPendingCard__teacher">{teacher}</p>
+      <div className="assignmentPendingCard__top">
+        <p className="assignmentPendingCard__title">{title}</p>
+      </div>
+      <p className="assignmentPendingCard__teacher">{teacher}</p>
+      <div className="assignmentPendingCard__bottom">
         <p className="assignmentPendingCard__deadline">{deadline}</p>
       </div>
     </div>

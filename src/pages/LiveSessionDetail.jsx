@@ -3,24 +3,21 @@ import "../styles/liveSessionDetail.css";
 
 export default function LiveSessionDetail() {
   const navigate = useNavigate();
+  // TODO: const { subjectId, sessionId } = useParams(); — wire up when fetching real session data
   return (
     <div className="liveSessionDetailPage">
-      <div className="liveSessionDetailBox">
-        {/* Top Row: Back + Search */}
-        <div className="liveSessionTopRow">
-          <button className="liveSessionBackBtn" onClick={() => navigate(-1)}>
-            &lt; Back
-          </button>
+      {/* Back button - outside the header box, above it */}
+      <button className="liveSessionBackBtn" onClick={() => navigate(-1)}>
+        &lt; Back
+      </button>
 
-          <div className="liveSessionSearch">
-            <input placeholder="Search..." />
-            <span className="liveSessionSearchIcon">🔍</span>
-          </div>
-        </div>
-
-        {/* Title */}
+      {/* Header box - fixed, does not scroll */}
+      <div className="liveSessionDetailHeaderBox">
         <h2 className="liveSessionTitle">Subject Name #Session ID</h2>
+      </div>
 
+      {/* Body box - scrolls */}
+      <div className="liveSessionDetailBodyBox">
         {/* Video Box */}
         <div className="liveSessionVideoBox"></div>
 
@@ -29,7 +26,7 @@ export default function LiveSessionDetail() {
           {/* Left info */}
           <div className="liveSessionLeftInfo">
             <p className="infoText">
-              [Title] “Linear Equations”
+              [Title] "Linear Equations"
             </p>
 
             <div className="byBox">

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import PageHeader from "../components/PageHeader";
 import "../styles/liveSessions.css";
 
 export default function LiveSessions() {
@@ -72,30 +73,22 @@ export default function LiveSessions() {
 
   return (
     <div className="liveSessionsPage">
-      {/* Back button OUTSIDE white box */}
-      <button className="liveBackBtnHeader" onClick={() => navigate(-1)}>
-        &lt; Back
-      </button>
 
-      {/* White box */}
-      <div className="liveSessionsBox">
-        {/* Title + Search row */}
-        <div className="liveTitleRow">
-          <h2 className="liveTitle">Subject Name - Session List</h2>
 
-          <div className="liveSearch">
-            <input placeholder="Search..." />
-            <span className="liveSearchIcon">🔍</span>
-          </div>
-        </div>
+      {/* Header box */}
+      <div className="liveSessionsHeaderBox">
+        <PageHeader title="Live Sessions" />
+      </div>
 
+      {/* Body box */}
+      <div className="liveSessionsBodyBox">
         {/* Sessions grid */}
         <div className="liveGrid">
           {sessions.map((s) => (
             <div
               key={s.id}
               className="liveCard"
-              onClick={() => navigate("/live-sessions/detail")}
+              onClick={() => navigate(`/live-sessions/${s.id}`)}
             >
               <img src={s.image} alt={s.title} className="liveCardImg" />
 

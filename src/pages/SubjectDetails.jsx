@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import PageHeader from "../components/PageHeader";
 import "../styles/subjectDetails.css";
 
 export default function SubjectDetails() {
@@ -85,17 +86,18 @@ export default function SubjectDetails() {
   =============================== */
   return (
     <div className="subjectDetailsPage">
-      <div className="subjectDetailsBox">
-        {/* Top bar inside the white container */}
-        <div className="subjectDetailsTop">
-          <button className="backBtn" onClick={() => navigate(-1)}>
-            &larr; Back
-          </button>
-        </div>
+      {/* Back button — outside the header box, above it */}
+      <button className="subjectDetailsBack" onClick={() => navigate(-1)}>
+        &lt; Back
+      </button>
 
-        {/* Title */}
-        <h1 className="subjectNameTitle">{subjectDetails.name}</h1>
+      {/* Header box — fixed, does not scroll */}
+      <div className="subjectDetailsHeaderBox">
+        <PageHeader title={subjectDetails.name} />
+      </div>
 
+      {/* Body box — scrolls */}
+      <div className="subjectDetailsBodyBox">
         {/* MAIN GRID: Teacher (big) + Recordings (small) */}
         <div className="topGrid">
           {/* Teacher card BIG */}
@@ -141,7 +143,7 @@ export default function SubjectDetails() {
           </div>
 
           {/* Recordings card small */}
-          <div className="miniStatCard" 
+          <div className="miniStatCard"
            onClick={() => navigate(`/subjects/recordings/${subjectId}`)}
            style={{ cursor: "pointer" }}>
             <h3 className="miniStatTitle">Session Recordings</h3>
@@ -180,72 +182,68 @@ export default function SubjectDetails() {
         {/* Bottom grid: Assignments + Quiz */}
         <div className="bottomGrid">
           <div className="assignQuizCard">
-  <h2 className="assignQuizCardTitle">Assignments</h2>
+            <h2 className="assignQuizCardTitle">Assignments</h2>
 
-  <div className="metricsRow">
+            <div className="metricsRow">
+              <div
+                className="metricCol"
+                onClick={() => navigate("/subjects/assignments/pending")}
+              >
+                <div className="metricNum blueBig">
+                  {subjectDetails.assignments.pending}
+                </div>
+                <div className="metricText">Pending</div>
+              </div>
 
-    <div
-      className="metricCol"
-      onClick={() => navigate("/subjects/assignments/pending")}
-    >
-      <div className="metricNum blueBig">
-        {subjectDetails.assignments.pending}
-      </div>
-      <div className="metricText">Pending</div>
-    </div>
+              <div
+                className="metricCol"
+                onClick={() => navigate("/subjects/assignments/completed")}
+              >
+                <div className="metricNum blueBig">
+                  {subjectDetails.assignments.completed}
+                </div>
+                <div className="metricText">Completed</div>
+              </div>
 
-    <div
-      className="metricCol"
-      onClick={() => navigate("/subjects/assignments/completed")}
-    >
-      <div className="metricNum blueBig">
-        {subjectDetails.assignments.completed}
-      </div>
-      <div className="metricText">Completed</div>
-    </div>
-
-    <div className="metricCol">
-      <div className="metricNum blueBig">
-        {subjectDetails.assignments.total}
-      </div>
-      <div className="metricText">Total</div>
-    </div>
-
-  </div>
-</div>
+              <div className="metricCol">
+                <div className="metricNum blueBig">
+                  {subjectDetails.assignments.total}
+                </div>
+                <div className="metricText">Total</div>
+              </div>
+            </div>
+          </div>
 
           <div className="assignQuizCard">
-  <h2 className="assignQuizCardTitle">Quiz</h2>
+            <h2 className="assignQuizCardTitle">Quiz</h2>
 
-  <div className="metricsRow">
+            <div className="metricsRow">
+              <div
+                className="metricCol"
+                onClick={() => navigate(`/subjects/quiz/${subjectId}?tab=pending`)}
+              >
+                <div className="metricNum blueBig">
+                  {subjectDetails.quizzes.pending}
+                </div>
+                <div className="metricText">Pending</div>
+              </div>
 
-    <div
-      className="metricCol"
-      onClick={() => navigate(`/subjects/quiz/${subjectId}?tab=pending`)}
-    >
-      <div className="metricNum blueBig">
-        {subjectDetails.quizzes.pending}
-      </div>
-      <div className="metricText">Pending</div>
-    </div>
+              <div
+                className="metricCol"
+                onClick={() => navigate(`/subjects/quiz/${subjectId}?tab=completed`)}
+              >
+                <div className="metricNum blueBig">
+                  {subjectDetails.quizzes.completed}
+                </div>
+                <div className="metricText">Completed</div>
+              </div>
 
-    <div
-      className="metricCol"
-      onClick={() => navigate(`/subjects/quiz/${subjectId}?tab=completed`)}
-    >
-      <div className="metricNum blueBig">
-        {subjectDetails.quizzes.completed}
-      </div>
-      <div className="metricText">Completed</div>
-    </div>
-
-    <div className="metricCol">
-      <div className="metricNum blueBig">
-        {subjectDetails.quizzes.total}
-      </div>
-      <div className="metricText">Total</div>
-    </div>
-
+              <div className="metricCol">
+                <div className="metricNum blueBig">
+                  {subjectDetails.quizzes.total}
+                </div>
+                <div className="metricText">Total</div>
+              </div>
             </div>
           </div>
         </div>

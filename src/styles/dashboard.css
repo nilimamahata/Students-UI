@@ -1,3 +1,5 @@
+/* ===== DASHBOARD LAYOUT ===== */
+
 .dashExact {
   display: flex;
   flex-direction: column;
@@ -7,36 +9,58 @@
 .dashExact__top {
   display: grid;
   grid-template-columns: 2.2fr 1fr;
-  gap: 18px;
+  gap: 16px;
   align-items: stretch;
 }
 
 /* Assignment+Quiz | Notification | Schedule */
 .dashExact__bottom {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 18px;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 16px;
   align-items: stretch;
+  height: 520px;
 }
 
-/* Left stacked column */
+/* Left stacked column (Assignment + Quiz) */
 .dashExact__leftCol {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
+  height: 100%;
 }
 
-/* white card*/
+.dashExact__leftCol > .whiteCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* Notification & Schedule cards fill their stretched grid cell.
+   min-height: 0 prevents these cards from forcing the grid track
+   taller than the left column — the left column (Assignment + Quiz)
+   becomes the height reference; content scrolls internally. */
+.dashExact__bottom > .whiteCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+/* ===== WHITE CARD ===== */
 
 .whiteCard {
   background: #ffffff;
-  border-radius: 18px;
+  border-radius: 16px;
   margin-top: 10px;
   padding: 14px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-/* Header */
+
+/* ===== CARD HEADER ===== */
+
 .cardHeader {
   display: flex;
   justify-content: space-between;
@@ -49,8 +73,6 @@
   font-weight: 800;
 }
 
-/*  Clickable Header  */
-
 .cardHeader--clickable {
   cursor: pointer;
   user-select: none;
@@ -60,7 +82,14 @@
   opacity: 0.8;
 }
 
-/* arrows */
+/* Session count label in header */
+.sessionCount {
+  font-size: 13px;
+  font-weight: 700;
+  color: #222;
+}
+
+/* ===== ARROW TOGGLE BUTTON ===== */
 
 .arrowBtn {
   border: none;
@@ -87,211 +116,350 @@
   transform: rotate(180deg);
 }
 
-.miniArrow {
-  display: flex;
-  align-items: center;
-  opacity: 0.7;
-}
-
-.sessionsGridCollapsed {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-
-.sessionsGridExpanded {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  max-height: 64vh;
-  overflow-y: auto;
-  padding-right: 6px;
-}
-
-/* Scrollbar */
-.sessionsGridExpanded::-webkit-scrollbar,
-.scheduleList::-webkit-scrollbar {
-  width: 6px;
-}
-
-.sessionsGridExpanded::-webkit-scrollbar-thumb,
-.scheduleList::-webkit-scrollbar-thumb {
-  background: #cfd8dc;
-  border-radius: 10px;
-}
-
-/* lists */
-
-.listBody,
-.notifBody {
+/* Make sessions whiteCard fill the full top-row height */
+.dashExact__top > .whiteCard {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
-/* calender*/
+/* ===== SESSION GRID ===== */
+
+.sessionsGrid {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+
+.sessionsGrid::-webkit-scrollbar { display: none; }
+
+/* Each card occupies exactly 1/3 of the visible track */
+.sessionsGrid > * {
+  flex: 0 0 calc((100% - 24px) / 3);
+  scroll-snap-align: start;
+}
+
+/* ===== LIST / NOTIFICATION BODY ===== */
+
+/* Assignment & Quiz: fills height, scrolls internally */
+.listBody {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+.listBody::-webkit-scrollbar { display: none; }
+
+/* Notification: fills card height, scrolls internally */
+.notifBody {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+.notifBody::-webkit-scrollbar { display: none; }
+
+/* ===== CALENDAR ===== */
+
 .calendarBox {
-  background: #f0f0f0;
-  border-radius: 18px;
+  background: #ffffff;
+  border-radius: 16px;
+  margin-top: 10px;
   padding: 14px;
-  height: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
 }
 
 .calendarHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
-  font-weight: 700;
+  margin-bottom: 10px;
 }
 
-.calendarHeader span {
+.calNavBtn {
   cursor: pointer;
-  font-size: 14px;
+  font-size: 18px;
+  color: #555;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 6px;
+  user-select: none;
+}
+
+.calNavBtn:hover {
+  background: rgba(0, 0, 0, 0.06);
 }
 
 .calendarHeader__mid {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
 }
 
 .calendarSelect {
   border: 1px solid #ddd;
-  padding: 4px 8px;
+  padding: 3px 6px;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 11px;
   outline: none;
   background: #fff;
+  cursor: pointer;
 }
 
 .calendarGrid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
+  gap: 3px;
   font-size: 12px;
 }
 
 .calDayName {
   text-align: center;
-  font-weight: 800;
-  opacity: 0.7;
+  font-weight: 700;
+  opacity: 0.6;
+  font-size: 11px;
+  padding: 4px 0;
 }
 
 .calDate {
-  text-align: center;
-  padding: 6px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
   border-radius: 50%;
   cursor: pointer;
-  transition: 0.2s;
+  transition: background 0.15s ease;
+  font-size: 11px;
+  overflow: hidden;
+  padding: 2px;
 }
 
 .calDate:hover {
-  background: #0a808a;
-  color: white;
+  background: #e0f2f1;
 }
 
 .calToday {
-  background: #ff5b5b;
+  background: #ff5b5b !important;
   color: white;
   font-weight: 700;
 }
 
+.calToday:hover {
+  background: #e53935 !important;
+}
+
 .calSelected {
-  border: 2px solid #ff5b5b;
+  background: #0a808a;
+  color: white;
   font-weight: 700;
 }
 
-.calDate.empty {
-  visibility: hidden;
+.calSelected:hover {
+  background: #086f78 !important;
 }
 
-/* Schedule  */
-
-.scheduleList {
+/* Event dots below the date number */
+.calDate__dots {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-height: 390px;
-  overflow-y: auto;
-  padding-right: 6px;
+  gap: 2px;
+  justify-content: center;
+  margin-top: 2px;
+  flex-shrink: 0;
 }
 
+.calDate__dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.calDate__dot--livesessions { background: #FDD835; }
+.calDate__dot--assignments  { background: #4CAF50; }
+.calDate__dot--quiz         { background: #9C27B0; }
+
+/* Hide dots inside today / selected (already coloured) */
+.calDate.calToday    .calDate__dots,
+.calDate.calSelected .calDate__dots {
+  display: none;
+}
+
+/* ===== SCHEDULE LIST ===== */
+
+/* Schedule: fills card height, scrolls internally */
+.scheduleList {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+.scheduleList::-webkit-scrollbar { display: none; }
+
+/* Schedule item */
 .scheduleItem {
-  background: #f1f6f6;
-  border-radius: 12px;
-  padding: 10px;
+  position: relative;
+  background: #f8fafb;
+  border-radius: 10px;
+  padding: 9px 10px 9px 14px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  overflow: clip;
+}
+
+.scheduleItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.scheduleItem * {
+  pointer-events: none;
+}
+
+/* Left colour bar */
+.scheduleItem::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 10px 0 0 10px;
+}
+
+.scheduleItem--livesessions { background: #FFFDE7; }
+.scheduleItem--assignments  { background: #F1F8E9; }
+.scheduleItem--quiz         { background: #F3E5F5; }
+
+.scheduleItem--livesessions::before { background: #FDD835; }
+.scheduleItem--assignments::before  { background: #4CAF50; }
+.scheduleItem--quiz::before         { background: #9C27B0; }
+
+/* Header row: date left, day badge right */
+.scheduleItem__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.scheduleDayBadge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: #4a4a4a;
+  color: #fff;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 8px;
 }
 
 .scheduleDate {
   font-size: 10px;
   font-weight: 800;
-  opacity: 0.7;
-  margin-bottom: 4px;
+  color: #555;
 }
 
 .scheduleTitle {
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 800;
+  color: #111;
 }
 
 .scheduleSub {
   font-size: 11px;
-  opacity: 0.85;
+  color: #555;
   margin-top: 2px;
 }
 
-.listItem,
-.notifItem,
-.sessionCard,
-.scheduleItem {
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+/* Empty state */
+.emptyState {
+  font-size: 13px;
+  color: #888;
+  text-align: center;
+  padding: 20px 0;
 }
 
-.listItem:hover,
-.notifItem:hover,
-.sessionCard:hover,
-.scheduleItem:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
+/* ===== RESPONSIVE ===== */
+/* Desktop layout (dashExact__top, dashExact__bottom) applies at all widths
+   above 768px — tablet and desktop look identical.
+   Below 768px the .desktopOnly wrapper is hidden; .mobileOnly takes over. */
 
-/* Make entire card clickable */
-.listItem *,
-.notifItem *,
-.sessionCard *,
-.scheduleItem * {
-  pointer-events: none;
-}
+/* ── TABLET (769px – 1100px) ── */
+@media (min-width: 769px) and (max-width: 1100px) {
 
-/* Arrow movement */
-.listItem__right {
-  transition: transform 0.2s ease;
-}
-
-.listItem:hover .listItem__right {
-  transform: translateX(4px);
-}
-
-
-@media (max-width: 1100px) {
+  /* Top row: give calendar a bit more breathing room */
   .dashExact__top {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 12px;
   }
 
+  /* Sessions: show 2 cards at a time on tablet */
+  .sessionsGrid {
+    gap: 10px;
+  }
+
+  .sessionsGrid > * {
+    flex: 0 0 calc((100% - 10px) / 2);
+  }
+
+  /* Bottom: 2-column grid, height driven by content */
   .dashExact__bottom {
     grid-template-columns: 1fr 1fr;
+    height: auto;
+    gap: 12px;
+  }
+
+  /* Assignment + Quiz: span both columns, lay cards side by side */
+  .dashExact__leftCol {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    height: 260px;
+  }
+
+  /* Each card inside leftCol takes equal width */
+  .dashExact__leftCol > .whiteCard {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Notification + Schedule: one per column, fixed scrollable height */
+  .dashExact__bottom > .whiteCard {
+    height: 300px;
+  }
+
+  /* Tighter padding on all white cards */
+  .whiteCard {
+    padding: 11px;
+  }
+
+  .calendarBox {
+    padding: 11px;
   }
 }
 
-@media (max-width: 700px) {
-  .sessionsGridCollapsed,
-  .sessionsGridExpanded {
+/* ── NARROW TABLET (769px – 908px) ── */
+/* Stack sessions and calendar vertically so the calendar
+   is never squished or clipped at these widths.
+   Desktop (>1100px) and mobile (≤768px) views are unaffected. */
+@media (min-width: 769px) and (max-width: 908px) {
+
+  .dashExact__top {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
 
-  .dashExact__bottom {
-    grid-template-columns: 1fr;
+  /* Sessions card height is content-driven when stacked */
+  .dashExact__top > .whiteCard {
+    height: auto;
+  }
+
+  /* Keep 2 session cards visible side-by-side */
+  .sessionsGrid > * {
+    flex: 0 0 calc((100% - 10px) / 2);
   }
 }

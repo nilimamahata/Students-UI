@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import "../styles/header.css";
 
@@ -7,6 +7,8 @@ const DEFAULT_AVATAR = "https://images.unsplash.com/photo-1494790108377-be9c29b2
 
 export default function Header({ toggleMenu, menuOpen }) {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const isDashboard = pathname === "/";
   const [open, setOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState("Select Course");
@@ -129,10 +131,12 @@ export default function Header({ toggleMenu, menuOpen }) {
         {menuOpen ? <HiOutlineX size={26} /> : <HiOutlineMenu size={26} />}
       </div>
 
-      <div className="header__left">
-        <h3 className="header__title">Welcome Back {studentName}</h3>
-        <p className="header__subtitle">Let's learn something new today</p>
-      </div>
+      {isDashboard && (
+        <div className="header__left">
+          <h3 className="header__title">Welcome Back {studentName}</h3>
+          <p className="header__subtitle">Let's learn something new today</p>
+        </div>
+      )}
 
       {/* CENTER dropdown */}
       <div className="header__courseWrap" ref={dropdownRef}>

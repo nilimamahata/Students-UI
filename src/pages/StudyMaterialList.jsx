@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import PageHeader from "../components/PageHeader";
 import "../styles/studyMaterial.css";
 
 export default function StudyMaterialList() {
@@ -44,28 +45,21 @@ export default function StudyMaterialList() {
 
   return (
     <div className="studyMaterialPage">
-      <div className="studyMaterialBox">
+      {/* Back Button */}
+      <button
+        className="studyMaterialBack"
+        onClick={() => navigate(-1)}
+      >
+        &lt; Back
+      </button>
 
-        {/* Back Button */}
-        <button
-          className="studyMaterialBack"
-          onClick={() => navigate(-1)}
-        >
-          &lt; Back
-        </button>
+      {/* Header box */}
+      <div className="studyMaterialHeaderBox">
+        <PageHeader title="Subject Name" />
+      </div>
 
-        {/* Header */}
-        <div className="studyMaterialHeader">
-          <h2 className="studyMaterialTitle">
-            Subject Name
-          </h2>
-
-          <div className="studyMaterialSearch">
-            <input placeholder="Search..." />
-            <span className="studyMaterialSearchIcon">🔍</span>
-          </div>
-        </div>
-
+      {/* Body box */}
+      <div className="studyMaterialBodyBox">
         {/* CONTENT */}
         <div className="studyMaterialContent">
 

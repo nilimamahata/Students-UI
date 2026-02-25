@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SubjectCard from "../components/SubjectCard";
+import PageHeader from "../components/PageHeader";
 import "../styles/subjects.css";
 
 export default function Subjects() {
@@ -16,49 +17,61 @@ export default function Subjects() {
         id: 1,
         img: "https://images.unsplash.com/photo-1454165205744-3b78555e5572?w=600",
         subject: "Subject Name",
-        teacher: "Teacher Name",
+        teacher: "Teacher's Name",
       },
       {
         id: 2,
         img: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600",
-        subject: "Subject Name",
-        teacher: "Teacher Name",
+        subject: "Mathematics",
+        teacher: "Mr. Smith",
       },
       {
         id: 3,
         img: "https://images.unsplash.com/photo-1513258496099-48168024aec0?w=600",
-        subject: "Subject Name",
-        teacher: "Teacher Name",
+        subject: "Science",
+        teacher: "Ms. Johnson",
       },
       {
         id: 4,
         img: "https://images.unsplash.com/photo-1544717305-2782549b5136?w=600",
-        subject: "Subject Name",
-        teacher: "Teacher Name",
+        subject: "Literature",
+        teacher: "Mrs. Brown",
       },
       {
         id: 5,
         img: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600",
-        subject: "Subject Name",
-        teacher: "Teacher Name",
+        subject: "History",
+        teacher: "Mr. Davis",
       },
       {
         id: 6,
         img: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600",
-        subject: "Subject Name",
-        teacher: "Teacher Name",
+        subject: "Art",
+        teacher: "Ms. Martinez",
       },
       {
         id: 7,
         img: "https://images.unsplash.com/photo-1454165205744-3b78555e5572?w=600",
-        subject: "Subject Name",
-        teacher: "Teacher Name",
+        subject: "Physical Education",
+        teacher: "Mr. Wilson",
       },
       {
         id: 8,
         img: "https://images.unsplash.com/photo-1513258496099-48168024aec0?w=600",
-        subject: "Subject Name",
-        teacher: "Teacher Name",
+        subject: "Computer Science",
+        teacher: "Dr. Taylor",
+      },
+      {
+        id: 9,
+        img: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600",
+        subject: "Mathematics",
+        teacher: "Prof. Smith",
+      },
+      {
+        id: 10,
+        img: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600",
+        subject: "Physics",
+        teacher: "Dr. Johnson",
       },
     ];
 
@@ -82,18 +95,13 @@ export default function Subjects() {
 
   return (
     <div className="subjectsPage">
-      <div className="subjectsBox">
-        <div className="subjectsHeader">
-          <h2 className="subjectsTitle">Subjects</h2>
+      <div className="subjectsHeaderBox">
+        <PageHeader title="Subjects" />
+      </div>
 
-          <div className="subjectsSearch">
-            <input placeholder="Search..." />
-            <span className="subjectsSearchIcon">🔍</span>
-          </div>
-        </div>
-
+      <div className="subjectsBodyBox">
         <div className="subjectsGrid">
-          {subjects.map((item, index) => (
+          {subjects.map((item) => (
             <SubjectCard
               key={item.id}
               img={item.img}
@@ -116,7 +124,6 @@ export default function Subjects() {
               />
             ))}
         */}
-
       </div>
     </div>
   );

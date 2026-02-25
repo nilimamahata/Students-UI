@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/sessionCard.css";
 
-export default function SessionCard({ id, img, subject, topic, teacher, dateTime }) {
+export default function SessionCard({ id, subject, topic, teacher, startsIn, timing }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -16,35 +16,16 @@ export default function SessionCard({ id, img, subject, topic, teacher, dateTime
       tabIndex={0}
       onKeyDown={(e) => e.key === "Enter" && handleClick()}
     >
-      <img className="sessionCard__img" src={img} alt={subject} />
-      <div className="sessionCard__body">
+      <div className="sessionCard__top">
+        <h4 className="sessionCard__subject">{subject}</h4>
+        <p className="sessionCard__topic">{topic}</p>
+        <p className="sessionCard__teacher">{teacher}</p>
+      </div>
 
-  {/* left*/}
-  <div className="sessionCard__left">
-    <h4 className="sessionCard__subject">{subject}</h4>
-
-    <p className="sessionCard__text">
-      Session Title/Topic: {topic}
-    </p>
-
-    <p className="sessionCard__teacher">
-      Teacher Name: {teacher}
-    </p>
-  </div>
-
-  {/* right*/}
-  <div className="sessionCard__right">
-    <p className="sessionCard__starts">
-      Starts soon
-    </p>
-
-    <p className="sessionCard__time">
-      Date & Time: {dateTime}
-    </p>
-  </div>
-
-</div>
-
+      <div className="sessionCard__bottom">
+        <p className="sessionCard__startsIn">{startsIn}</p>
+        <p className="sessionCard__timing">{timing}</p>
+      </div>
     </div>
   );
 }

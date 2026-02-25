@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import PageHeader from "../components/PageHeader";
 import "../styles/assignmentDetail.css";
 
 export default function AssignmentDetail() {
@@ -126,24 +127,18 @@ export default function AssignmentDetail() {
 
   return (
     <div className="assignmentDetailPage">
-      {/* Top fixed bar inside page */}
-      <div className="assignmentTopBar">
-        <button className="assignmentBack" onClick={() => navigate(-1)}>
-          &lt; Back
-        </button>
+      {/* Back button — above the header box */}
+      <button className="assignmentDetailBack" onClick={() => navigate(-1)}>
+        &lt; Back
+      </button>
+
+      {/* Header box with PageHeader */}
+      <div className="assignmentDetailHeaderBox">
+        <PageHeader title={assignment.subject} />
       </div>
 
-      {/* Main white container */}
-      <div className="assignmentDetailBox">
-        {/* Subject + Search row */}
-        <div className="assignmentDetailHeader">
-          <h2 className="assignmentDetailSubject">{assignment.subject}</h2>
-          <div className="assignmentSearch">
-            <input placeholder="Search..." />
-            <span className="assignmentSearchIcon">🔍</span>
-          </div>
-        </div>
-
+      {/* Body box */}
+      <div className="assignmentDetailBodyBox">
         {/* Light grey assignment container */}
         <div className="assignmentDetailContent">
           {/* LEFT: Assignment information */}
@@ -249,3 +244,4 @@ export default function AssignmentDetail() {
     </div>
   );
 }
+

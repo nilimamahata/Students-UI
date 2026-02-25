@@ -1,15 +1,21 @@
+import { useNavigate } from "react-router-dom";
 import "../styles/assignmentPending.css";
 
-export default function AssignmentCompletedCard({ img, title, teacher, completedDate }) {
+export default function AssignmentCompletedCard({ id, title, teacher, completedDate }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/subjects/assignments/completed/${id || 1}`);
+  };
+
   return (
-    <div className="assignmentCompletedCard">
-      <div className="assignmentCompletedCard__imgWrap">
-        <img className="assignmentCompletedCard__img" src={img} alt={title} />
-        <span className="assignmentCompletedCard__badge">✓</span>
+    <div className="assignmentCompletedCard" onClick={handleClick}>
+      <span className="assignmentCompletedCard__badge">✓</span>
+      <div className="assignmentCompletedCard__top">
+        <p className="assignmentCompletedCard__title">{title}</p>
       </div>
-      <div className="assignmentCompletedCard__info">
-        <h4 className="assignmentCompletedCard__title">{title}</h4>
-        <p className="assignmentCompletedCard__teacher">{teacher}</p>
+      <p className="assignmentCompletedCard__teacher">{teacher}</p>
+      <div className="assignmentCompletedCard__bottom">
         <p className="assignmentCompletedCard__date">{completedDate}</p>
       </div>
     </div>

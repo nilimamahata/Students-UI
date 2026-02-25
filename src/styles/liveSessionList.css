@@ -1,0 +1,140 @@
+.liveListPage {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Back button - above header box */
+.liveListBack {
+  background: #0a808a;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-bottom: 2px;
+}
+
+.liveListBack:hover {
+  background: #097a83;
+}
+
+/* Header box */
+.liveListHeaderBox {
+  width: 100%;
+  background: white;
+  border-radius: 18px 18px 0 0;
+  padding: 18px 24px;
+}
+
+.liveListHeaderBox .pageHeader {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+/* Body box */
+.liveListBodyBox {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  width: 100%;
+  background: white;
+  border-radius: 0 0 18px 18px;
+  padding: 18px 24px;
+}
+
+/* Card grid */
+.liveListGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Individual card */
+.liveListCard {
+  background: #0a808a;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  padding: 14px 16px;
+  height: 145px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: opacity 0.18s;
+}
+
+.liveListCard:hover {
+  opacity: 0.88;
+}
+
+/* Top section: subject + topic */
+.liveListCardTop {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.liveListCardSubject {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.liveListCardTopic {
+  font-size: 10px;
+  font-weight: 400;
+  opacity: 0.88;
+  margin: 0;
+}
+
+/* Middle: teacher */
+.liveListCardTeacher {
+  font-size: 11px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Bottom: date + timing, right-aligned */
+.liveListCardBottom {
+  text-align: right;
+}
+
+.liveListCardDate {
+  font-size: 10px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.liveListCardTiming {
+  font-size: 11px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .liveListGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .liveListGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .liveListGrid {
+    grid-template-columns: 1fr;
+  }
+}

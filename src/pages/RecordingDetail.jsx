@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
+import PageHeader from "../components/PageHeader";
 import "../styles/recordingDetail.css";
 
 export default function RecordingDetail() {
@@ -7,6 +8,7 @@ export default function RecordingDetail() {
 
   // Sample video data - in real app this would come from API
   const videoData = {
+    subject: "Subject Name",
     title: "Linear Equations",
     teacher: "Sir Zodina",
     dateRecorded: "22 Jan 2026",
@@ -17,21 +19,18 @@ export default function RecordingDetail() {
 
   return (
     <div className="recordingDetailPage">
-      <div className="recordingDetailBox">
-        {/* Back Button */}
-        <button className="recordingDetailBack" onClick={() => navigate(-1)}>
-          &lt; Back
-        </button>
+      {/* Back button — above the header box */}
+      <button className="recordingDetailBack" onClick={() => navigate(-1)}>
+        &lt; Back
+      </button>
 
-        {/* Header with Title and Search */}
-        <div className="recordingDetailHeader">
-          <h2 className="recordingDetailTitle">Subject Name - Record ID</h2>
-          <div className="recordingDetailSearch">
-            <input placeholder="Search..." />
-            <span className="recordingDetailSearchIcon">🔍</span>
-          </div>
-        </div>
+      {/* Header box with PageHeader */}
+      <div className="recordingDetailHeaderBox">
+        <PageHeader title={`${videoData.subject} - ${videoId}`} />
+      </div>
 
+      {/* Body box */}
+      <div className="recordingDetailBodyBox">
         {/* Video Player */}
         <div className="recordingDetailPlayer">
           <div className="recordingDetailVideo">
@@ -41,7 +40,7 @@ export default function RecordingDetail() {
               className="recordingDetailVideoElement"
               poster="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800"
             >
-              <source src={videoData.videoUrl} type="video/mp4" />
+              {videoData.videoUrl && <source src={videoData.videoUrl} type="video/mp4" />}
               Your browser does not support the video tag.
             </video>
           </div>
@@ -73,5 +72,4 @@ export default function RecordingDetail() {
       </div>
     </div>
   );
-
 }

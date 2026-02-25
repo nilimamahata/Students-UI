@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
+import PageHeader from "../components/PageHeader";
 import "../styles/quiz.css";
 
 export default function QuizResult() {
@@ -7,6 +8,7 @@ export default function QuizResult() {
 
   const quizData = {
     id: quizId,
+    subject: "Subject Name",
     title: "Quiz (ID or number)",
     teacher: "Miss Ruatfeli",
     dateCreated: "21 Jan 2026",
@@ -59,24 +61,19 @@ export default function QuizResult() {
   };
 
   return (
-    <div className="quizDetailPage">
-      <div className="quizDetailBox">
-        {/* Back Button */}
-        <button className="quizDetailBack" onClick={() => navigate(-1)}>
-          &lt; Back
-        </button>
+    <div className="quizResultPage">
+      {/* Back button — above the header box */}
+      <button className="quizResultBack" onClick={() => navigate(-1)}>
+        &lt; Back
+      </button>
 
-        {/* Header with Title and Search */}
-        <div className="quizDetailHeader">
-          <h2 className="quizDetailTitle">Subject Name</h2>
-          <div className="quizDetailSearch">
-            <input placeholder="Search..." />
-            <span className="quizDetailSearchIcon">🔍</span>
-          </div>
-        </div>
+      {/* Header box with PageHeader */}
+      <div className="quizResultHeaderBox">
+        <PageHeader title={quizData.subject} />
+      </div>
 
-        {/* Quiz Content */}
-        <div className="quizDetailContent">
+      {/* Body box */}
+      <div className="quizResultBodyBox">
           {/* Quiz Info */}
           <div className="quizDetailInfo quizDetailInfo--result">
             <div className="quizDetailInfoLeft">
@@ -135,7 +132,6 @@ export default function QuizResult() {
               Score: {quizData.score}/{quizData.totalQuestions}
             </p>
           </div>
-        </div>
       </div>
     </div>
   );

@@ -70,11 +70,11 @@
 
 /* submenu */
 .sidebar__subMenu {
-  margin-left: 32px;
-  margin-top: -6px;
+  margin-left: 20px;   /* was 32px */
+  margin-top: 4px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 /* submenu links */
@@ -84,25 +84,27 @@
   gap: 8px;
   color: white;
   text-decoration: none;
-  font-size: 11px;
-  opacity: 0.8;
-  padding: 6px 10px;
+  font-size: 12px;
+  opacity: 0.85;
+  padding: 8px 12px;
   border-radius: 10px;
-  width: fit-content;
+  width: 100%;              /* make full width */
+  transition: 0.2s ease;    /* smooth hover */
 }
 
 .sidebar__subLink:hover {
   opacity: 1;
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .sidebar__subLink.active {
   opacity: 1;
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.20);
 }
+
 .sidebar {
   width: 250px;
-  background: #0a808a;
+  background: #015865;
   color: white;
   padding: 18px 16px;
   display: flex;
