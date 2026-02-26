@@ -258,10 +258,33 @@
 }
 
 @media (max-width: 460px) {
-  .assignmentDetailLeft {
-    text-align: center;
-  }
   .assignmentTitleRow {
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .assignmentDetailTitle {
+    font-size: 16px;
+  }
+
+  .submittedTopText {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 945px) {
+  .assignmentTitleRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .assignmentDetailTitle {
+    font-size: 16px;
+  }
+
+  .submittedTopText {
+    margin-top: 0;
   }
 }

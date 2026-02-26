@@ -56,7 +56,7 @@ export default function QuizActive() {
   return (
     <div className="quizActivePage">
       {/* Back button — above header box */}
-      <button className="quizBackHeader" onClick={() => navigate(-1)}>
+      <button className="quizBackHeader" onClick={() => navigate(-2)}>
         &lt; Back
       </button>
 
